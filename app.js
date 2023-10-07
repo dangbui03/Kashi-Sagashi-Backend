@@ -1,30 +1,41 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose')
-const bodyParser = require('body-parser');
-const db = require('./configs/db')
-const morgan = require('morgan');
-const createError = require('http-errors');
-require('express-async-errors');
+//Express and Node server imports
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require('cookie-parser');
+const morgan = require("morgan");
+const createError = require("http-errors");
+const dotenv = require('dotenv');
+//require("express-async-errors");
 
-require("dotenv").config();
-db.connect()
+dotenv.config();
 
-const songRoute = require('./routes/route');
+// Router imports
+const songRoute = require("./src/routes/index");
+
+//database connection
+const db = require("./src/configs/db");
+
+db.connect();
 
 const app = express();
 
-app.use(morgan('dev'));
+//use setup
+app.use(morgan("dev"));
 app.use(cors);
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}));
-app.use('/admin', songRoute)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+//app.use(cookieParser());
 
-const port = 3001;
+
+// Router use
+app.use(songRoute);
+
+app.use((req, res, next) => {
+	next(createError(404));
+});
+
+
+const port = process.env.API_PORT;
 app.listen(port, () => {
-    console.log(`listen on port ${port}`)
-})
-
-
-
-
+  console.log(`listen on port ${port}`);
+});
