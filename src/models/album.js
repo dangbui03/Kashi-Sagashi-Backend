@@ -4,6 +4,7 @@ const albumSchema = new mongoose.Schema ({
     name: String,
     genre: String,
     release_date: Date,
+    
     song: [
         {
             songID: {
