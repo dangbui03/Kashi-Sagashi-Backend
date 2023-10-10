@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Router imports
-const songRoute = require("./src/routes/index");
+const songRoute = require("./src/routes/route");
 
 //database connection
 const db = require("./src/configs/db");
