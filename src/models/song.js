@@ -13,12 +13,18 @@ const SongSchema = new mongoose.Schema({
             }
         }
     ],
-    artist: {
-        artistID: {
+    singer: [{
+        singerID: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Artist"
         }
-    }
+    }],
+    composer: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Artist",
+        }
+    ]
 });
 
 module.exports = mongoose.model('Song', SongSchema);

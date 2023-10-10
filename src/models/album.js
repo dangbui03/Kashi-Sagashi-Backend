@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const albumSchema = new mongoose.Schema ({
     name: String,
-    genre: String,
     release_date: Date,
     song: [
         {
@@ -12,8 +11,8 @@ const albumSchema = new mongoose.Schema ({
             }
         }
     ],
-    artist: {
-        artistID: {
+    composer: {
+        composerID: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Artist",
         }
