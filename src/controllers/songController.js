@@ -1,6 +1,6 @@
-const Song = require('../models/song')
-const Album = require("../models/album")
-const Artist = require("../models/artist")
+const Song = require('../model/song')
+const Album = require("../model/album")
+const Artist = require("../model/artist")
 
 //const getAllSong = async (req, res) => {
 //  const songs = await Song.find();

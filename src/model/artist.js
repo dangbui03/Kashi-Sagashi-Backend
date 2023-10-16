@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const artistSchema = new mongoose.Schema ({
     Name: String,
-    role: String,
     song: [
         {
             songID: {

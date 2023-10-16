@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      unique: true,
       required: true,
     },
     email: {
@@ -16,11 +15,14 @@ const userSchema = new mongoose.Schema(
       require: true,
     },
     role: {
-      type: String,
-      default: "Basic",
-      require: true,
-      enum: ["user", "admin"],
+      User: {
+        type: Number,
+        default: 2001
+      },
+      Editor: Number,
+      Admin: Number,
     },
+    refreshToken: String
   },
   { timestamps: true }
 );
