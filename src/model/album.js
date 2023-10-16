@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const albumSchema = new mongoose.Schema ({
     name: String,
     release_date: Date,
+    
     song: [
         {
             songID: {
