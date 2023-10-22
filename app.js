@@ -15,7 +15,7 @@ dotenv.config();
 const verifyJWT = require('./src/middleware/verifyJWT');
 const errorHandler = require('./src/middleware/errorHandler');
 //const { logger } = require('./src/middleware/logEvents');
-//const credentials = require('./middleware/credentials');
+const credentials = require('./src/middleware/credentials');
 
 //database connection
 const db = require("./src/configs/db");
@@ -24,7 +24,7 @@ db.connect();
 
 //use setup
 //app.use(logger);
-//app.use(credentials); 
+app.use(credentials); 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -40,6 +40,7 @@ app.use('/song', require('./src/routes/song'));
 app.use('/register', require('./src/routes/register'));
 app.use('/auth', require('./src/routes/auth'));
 app.use('/refresh', require('./src/routes/refresh'));
+app.use('/logout', require('./src/routes/logout'));
 
 app.use(verifyJWT);
 app.use('/employee', require('./src/routes/api/employees'));

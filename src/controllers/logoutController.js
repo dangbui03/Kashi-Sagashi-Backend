@@ -27,7 +27,14 @@ const handleLogout = async (req, res) => {
   // Delete refreshToken in db
   const otherUsers = usersDB.users.filter(person => person.refreshToken !== foundUser.refreshToken);
   const currentUsers = {...foundUser, refreshToken: ''};
-  usersDB.setUsers([...otherUsers, ])
+  usersDB.setUsers([...otherUsers, currentUsers]);
+  await fsPromises.writeFile(
+    path.join(__dirname, '..', 'model', 'users.json'),
+    JSON.stringify(usersDB.users)
+  );
+  res.clearCookie('jwt', { httpOnly: true }); // secure: true - only serve in https
+  res.sendStatus(204);
+
 };
 
-module.exports = { handleRefreshToken };
+module.exports = { handleLogout };
