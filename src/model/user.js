@@ -6,14 +6,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    email: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      require: true,
-    },
     role: {
       User: {
         type: Number,
@@ -21,6 +13,10 @@ const userSchema = new mongoose.Schema(
       },
       Editor: Number,
       Admin: Number,
+    },
+    password: {
+      type: String,
+      require: true,
     },
     refreshToken: String
   },

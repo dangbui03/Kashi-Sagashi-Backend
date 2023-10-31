@@ -1,0 +1,12 @@
+20231029	20:01:04	5d2ceeb4-72cf-4ff9-954f-81491bf5dea1	ReferenceError: porcess is not defined
+20231029	20:01:11	bec817aa-e970-4f9f-b749-64e1115d9396	ReferenceError: porcess is not defined
+20231029	20:01:58	90491b01-19f3-4549-93b2-5d4c7f3cedd4	ReferenceError: porcess is not defined
+20231029	20:02:17	65327073-1ce2-4882-b292-eeadc1165798	ReferenceError: porcess is not defined
+20231029	20:02:51	34682f96-ea51-4367-8112-e769cf85290a	ReferenceError: porcess is not defined
+20231029	20:04:01	74e237ce-7838-4c0f-9fef-c7ab5eb49a99	ReferenceError: porcess is not defined
+20231029	20:04:09	c8a5f62e-9666-4920-821a-e9f8102b145c	ReferenceError: porcess is not defined
+20231029	21:56:58	6df3e06d-c265-4c37-923c-ad61f7fa6326	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
+20231029	21:57:21	9584157a-5028-45a7-815f-fe0659ce056a	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
+20231029	21:57:29	74777f0b-5ded-41e4-b608-387e72ca1401	ReferenceError: rolesArray is not defined
+20231029	22:00:11	f47c3543-9c5b-47ef-96ec-df5219cc58cf	ReferenceError: rolesArray is not defined
+20231031	14:12:09	48007ba9-32ad-423e-97a6-974594e750bd	ReferenceError: cookies is not defined
