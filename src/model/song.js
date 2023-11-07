@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const SongSchema = new mongoose.Schema({
+const songSchema = new mongoose.Schema({
     name: String,
     lyrics: String,
     link: String,
@@ -33,9 +33,10 @@ const SongSchema = new mongoose.Schema({
         {
             bandID:{
                 type: mongoose.Schema.Types.ObjectId,
+                ref: "Band"
             }
         }
     ],
 });
 
-module.exports = mongoose.model('Song', SongSchema);
+module.exports = mongoose.model("Song", songSchema , "song");

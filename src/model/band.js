@@ -30,4 +30,4 @@ const bandSchema = new mongoose.Schema ({
     ],
 })
 
-module.exports = mongoose.model("Band", artistSchema);
+module.exports = mongoose.model("Band", bandSchema, "band");

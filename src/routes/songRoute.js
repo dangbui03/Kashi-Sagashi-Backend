@@ -1,0 +1,13 @@
+const express = require('express')
+const songCtl = require('../controllers/songController.js')
+const router = express.Router()
+router.get('/song', songCtl.getAllSong)
+router.get('/song/:id', songCtl.getSongById)
+router.get('/song/:songID/album/', songCtl.getAlbumInSong)
+router.get('song/:songID/artist/',songCtl.getSingerInSong)
+router.get('song/:songID/artist/',songCtl.getComposerInSong)
+router.get('song/:songID/band/',songCtl.getBandInSong)
+router.post('/song', songCtl.createSong)
+router.put('/song/:id', songCtl.updateSong)
+router.delete('/song/:id', songCtl.deleteSong)
+module.exports = router

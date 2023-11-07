@@ -29,7 +29,6 @@ app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());
 
 // Router use
-app.use('/song', require('./src/routes/song'));
 app.use('/register', require('./src/routes/register'));
 
 // catch 404 and forward to error handler
@@ -47,3 +46,12 @@ const port = process.env.API_PORT;
 app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
+
+const songRoute = require("./src/routes/songRoute.js")
+app.use("/api/", songRoute)
+const albumRoute = require("./src/routes/albumRoute.js")
+app.use("/api/", albumRoute)
+const artistRoute = require("./src/routes/artistRoute.js")
+app.use("/api/", artistRoute)
+const bandRoute = require("./src/routes/bandRoute.js")
+app.use("/api/", bandRoute)

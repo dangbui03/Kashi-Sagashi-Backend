@@ -12,12 +12,22 @@ const albumSchema = new mongoose.Schema ({
             }
         }
     ],
-    composer: {
-        composerID: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Artist",
+    artist: [
+        {
+            artistID: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Artist",
+            }
+        },
+    ],
+    band: [
+        {
+            bandID: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Band"
+            }
         }
-    },
+    ]
 })
 
-module.exports = mongoose.model("Album", albumSchema);
+module.exports = mongoose.model("Album", albumSchema, "album");

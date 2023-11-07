@@ -24,4 +24,4 @@ const artistSchema = new mongoose.Schema ({
     ],
 })
 
-module.exports = mongoose.model("Artist", artistSchema);
+module.exports = mongoose.model("Artist", artistSchema, "artist");
