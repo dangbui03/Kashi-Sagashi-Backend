@@ -6,7 +6,7 @@ const artistSchema = new mongoose.Schema ({
     sex: Boolean,
     country: String,
     role: [String],
-    song: [
+    songs: [
         {
             songID: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -24,4 +24,4 @@ const artistSchema = new mongoose.Schema ({
     ],
 })
 
-module.exports = mongoose.model("Artist", artistSchema, "artist");
+module.exports = mongoose.model("Artist", artistSchema);

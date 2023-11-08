@@ -47,11 +47,11 @@ app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
 
-const songRoute = require("./src/routes/songRoute.js")
-app.use("/api/", songRoute)
-const albumRoute = require("./src/routes/albumRoute.js")
-app.use("/api/", albumRoute)
-const artistRoute = require("./src/routes/artistRoute.js")
-app.use("/api/", artistRoute)
-const bandRoute = require("./src/routes/bandRoute.js")
-app.use("/api/", bandRoute)
+const songRoute = require('./src/routes/songRoute')
+app.use("/api", songRoute)
+const albumRoute = require("./src/routes/albumRoute")
+app.use("/api", albumRoute)
+const artistRoute = require("./src/routes/artistRoute")
+app.use("/api", artistRoute)
+const bandRoute = require("./src/routes/bandRoute")
+app.use("/api", bandRoute)

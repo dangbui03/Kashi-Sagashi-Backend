@@ -4,7 +4,7 @@ const albumSchema = new mongoose.Schema ({
     name: String,
     release_date: Date,
     link: String,
-    song: [
+    songs: [
         {
             songID: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -12,7 +12,7 @@ const albumSchema = new mongoose.Schema ({
             }
         }
     ],
-    artist: [
+    artists: [
         {
             artistID: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -20,7 +20,7 @@ const albumSchema = new mongoose.Schema ({
             }
         },
     ],
-    band: [
+    bands: [
         {
             bandID: {
                 type: mongoose.Schema.Types.ObjectId,
@@ -30,4 +30,4 @@ const albumSchema = new mongoose.Schema ({
     ]
 })
 
-module.exports = mongoose.model("Album", albumSchema, "album");
+module.exports = mongoose.model('Album', albumSchema);

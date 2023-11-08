@@ -1,4 +1,3 @@
-const album = require("../model/album.js");
 const Album = require("../model/album.js");
 
 async function getAllAlbum(req, res) {
@@ -15,8 +14,8 @@ async function getAlbumById(req, res) {
 }
 
 async function createAlbum(req, res) {
-    const newAlbum = new Song(req.Album);
-    const saveAlbum = await newAlbum.save();
+    const newAlbum = new Song(req.body);
+    const savedAlbum = await newAlbum.save();
     if (savedAlbum) {
         res.send(savedAlbum);
     }
