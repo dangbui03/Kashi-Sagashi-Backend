@@ -3,10 +3,14 @@ require('dotenv').config();
 const path = require('path')
 const http = require('http');
 const express = require("express");
+const session = require('express-session')
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 const createError = require("http-errors");
+const passport = require('passport');
+
+require('./src/configs/passport')
 
 const app = express();
 
@@ -33,21 +37,35 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(cookieParser());
+app.use(session({
+  secret: 'my secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {secure: false}
+}));
+
+// Initialize Passport and set up sessions (if needed)
+app.use(passport.initialize());
+app.use(passport.session());
 
 //serve static files
 app.use('/', express.static(path.join(__dirname, '/public')));
 
+// Router require
+const normalAuth = require('./src/routes/authNormal')
+const googleAuthRoute = require('./src/routes/authGoogle')
+
 // Router use
 app.use('/', require('./src/routes/root'));
 app.use('/register', require('./src/routes/register'));
-app.use('/auth', require('./src/routes/auth'));
+app.use('/auth', [normalAuth, googleAuthRoute] );
 
 app.use('/refresh', require('./src/routes/refresh'));
 app.use('/logout', require('./src/routes/logout'));
 
 app.use(verifyJWT);
 app.use('/employees', require('./src/routes/api/employees'));
-app.use('/song', require('./src/routes/song'));
+app.use('/song', require('./src/routes/api/song'));
 
 app.all('*', (req, res) => {
   res.status(404);
