@@ -36,3 +36,16 @@
 20231108	01:15:49	83b876d5-2d9f-47ac-b73c-7b41ae8f8758	Error: Internal Server Error
 20231108	01:23:13	e875fc5b-82a7-4ebf-9057-ff758a9b62e8	Error: Internal Server Error
 20231108	01:24:49	32712273-7389-4e27-afdc-29ea8c2d1591	Error: Internal Server Error
+20231109	10:47:57	11321956-725a-466b-96e0-3400812ad1cd	SyntaxError: Unexpected end of JSON input
+20231109	10:48:06	6b8ebda5-c5b4-4849-8aa8-9894a695f9e8	SyntaxError: Unexpected end of JSON input
+20231109	10:48:15	8adc9dbc-4a86-48ba-b781-894f6afaf45c	SyntaxError: Unexpected end of JSON input
+20231109	10:48:47	341d1969-05ff-4c3d-a253-b1fed71c8383	SyntaxError: Unexpected end of JSON input
+20231109	10:48:49	2f1be37d-b81a-4405-8ef5-d90b9a9bb58c	SyntaxError: Unexpected end of JSON input
+20231109	10:49:53	e4aab4bb-4368-4150-a175-782c7889f5be	Error: ENOENT: no such file or directory, stat 'C:\Users\dangt\Desktop\kashisagashi\Kashi-Sagashi-Backend\views\404.html'
+20231109	10:50:27	193b4803-4b23-4884-89c0-d8aed5831509	Error: ENOENT: no such file or directory, stat 'C:\Users\dangt\Desktop\kashisagashi\Kashi-Sagashi-Backend\views\404.html'
+20231109	10:56:53	530e713b-cd27-42dc-9429-e4b40e1267b6	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:07	e09d669b-faea-423a-9b1c-208ac49c7479	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:10	e23218f2-7015-4969-8dd6-482e46ddd1b1	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:37	26bbe917-f77c-4bcf-bb6c-0b89c885c44d	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:48	77c71648-0389-4f63-a7d8-d1a418120ad7	SyntaxError: Unexpected token } in JSON at position 30
+20231109	11:01:05	090abb3f-d5b6-4aec-ac76-49ec49ec0cd8	SyntaxError: Unexpected token } in JSON at position 36
