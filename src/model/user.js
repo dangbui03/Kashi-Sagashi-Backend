@@ -23,6 +23,9 @@ const userSchema = new mongoose.Schema(
       },
       Admin: Number,
     },
+    verify: {
+
+    },
     profileImage: String,
     refreshToken: String,
   },

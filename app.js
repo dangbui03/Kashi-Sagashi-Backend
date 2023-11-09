@@ -54,18 +54,18 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 // Router require
 const normalAuth = require('./src/routes/authNormal')
 const googleAuthRoute = require('./src/routes/authGoogle')
+const song = require('./src/routes/api/song')
 
 // Router use
 app.use('/', require('./src/routes/root'));
 app.use('/register', require('./src/routes/register'));
 app.use('/auth', [normalAuth, googleAuthRoute] );
-
 app.use('/refresh', require('./src/routes/refresh'));
 app.use('/logout', require('./src/routes/logout'));
 
 app.use(verifyJWT);
 app.use('/employees', require('./src/routes/api/employees'));
-app.use('/song', require('./src/routes/api/song'));
+app.use('/api', [song ]);
 
 app.all('*', (req, res) => {
   res.status(404);
