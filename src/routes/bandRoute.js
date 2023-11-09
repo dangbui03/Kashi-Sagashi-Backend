@@ -1,5 +1,5 @@
 const express = require('express')
-const bandCtl = require('../controllers/bandController.js')
+const bandCtl = require('../controllers/bandController')
 const router = express.Router()
 router.get('/band', bandCtl.getAllBand)
 router.get('/band/:id', bandCtl.getBandById)

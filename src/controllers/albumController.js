@@ -1,23 +1,26 @@
 const Album = require("../model/album.js");
 
 async function getAllAlbum(req, res) {
-    const album = await Album.find({});
-    res.send(album);
+    const album = await Album.find();
+    if(!album){
+        return res.status(204).json({ message: "Album not found."});
+    }
+    res.json(album);
 }
 
 async function getAlbumById(req, res) {
     const album = await Album.findById(req.params.id);
     if (!album) {
-        return res.status(404).json({ message: "Album not found." });
+        return res.status(204).json({ message: "Album not found." });
     }
-    res.send(album);
+    res.json(album);
 }
 
 async function createAlbum(req, res) {
-    const newAlbum = new Song(req.body);
+    const newAlbum = new Album(req.body);
     const savedAlbum = await newAlbum.save();
     if (savedAlbum) {
-        res.send(savedAlbum);
+       return res.status(201).json(savedAlbum);
     }
 }
 
@@ -26,17 +29,17 @@ async function updateAlbum(req, res) {
         new: true,
     });
     if (!album) {
-        return res.status(404).send();
+        return res.status(404).json({ message: "Album not found"});
     }
-    res.send(album);
+    res.status(204).json(album);
 }
 
 async function deleteAlbum(req, res) {
     const album = await Album.findByIdAndDelete(req.params.id);
     if (!album) {
-        return res.status(404).send();
+        return res.status(404).json({ message: "Album not found"});
     }
-    res.send(true);
+    res.status(204).json();
 }
 
 function getSongInAlbum(req, res) {

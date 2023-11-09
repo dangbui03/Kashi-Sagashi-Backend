@@ -1,23 +1,26 @@
 const Artist = require("../model/artist.js");
 
 async function getAllArtist(req, res) {
-    const artist = await Artist.find({});
-    res.send(artist);
+    const artist = await Artist.find();
+    if(!artist){
+        return res.status(204).json({ message: "Artist not found"})
+    }
+    res.json(artist);
 }
 
 async function getArtistById(req, res) {
     const artist = await Artist.findById(req.params.id);
     if (!artist) {
-        return res.status(404).json({ message: "Artist not found." });
+        return res.status(204).json({ message: "Artist not found." });
     }
-    res.send(artist);
+    res.json(artist);
 }
 
 async function createArtist(req, res) {
     const newArtist = new Artist(req.body);
     const savedArtist = await newArtist.save();
     if (savedArtist) {
-        res.send(savedArtist);
+        return res.status(201).json(savedArtist);
     }
 }
 
@@ -26,7 +29,7 @@ async function updateArtist(req, res) {
         new: true,
     });
     if (!artist) {
-        return res.status(404).send();
+        return res.status(404).json({ message: "Artist not found"});
     }
     res.send(artist);
 }
@@ -34,9 +37,9 @@ async function updateArtist(req, res) {
 async function deleteArtist(req, res) {
     const artist = await Artist.findByIdAndDelete(req.params.id);
     if (!artist) {
-        return res.status(404).send();
+        return res.status(404).json({ message: "Artist not found"});
     }
-    res.send(true);
+    res.status(204).json();
 }
 
 function getAlbumInArtist(req, res) {

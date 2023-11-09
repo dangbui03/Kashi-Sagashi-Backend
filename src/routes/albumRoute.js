@@ -1,6 +1,7 @@
 const express = require('express')
-const albumCtl = require('../controllers/albumController.js')
+const albumCtl = require('../controllers/albumController')
 const router = express.Router()
+
 router.get('/album', albumCtl.getAllAlbum)
 router.get('/album/:id', albumCtl.getAlbumById)
 router.get('/album/:albumID/song/', albumCtl.getSongInAlbum)

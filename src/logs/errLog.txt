@@ -1,0 +1,51 @@
+20231029	20:01:04	5d2ceeb4-72cf-4ff9-954f-81491bf5dea1	ReferenceError: porcess is not defined
+20231029	20:01:11	bec817aa-e970-4f9f-b749-64e1115d9396	ReferenceError: porcess is not defined
+20231029	20:01:58	90491b01-19f3-4549-93b2-5d4c7f3cedd4	ReferenceError: porcess is not defined
+20231029	20:02:17	65327073-1ce2-4882-b292-eeadc1165798	ReferenceError: porcess is not defined
+20231029	20:02:51	34682f96-ea51-4367-8112-e769cf85290a	ReferenceError: porcess is not defined
+20231029	20:04:01	74e237ce-7838-4c0f-9fef-c7ab5eb49a99	ReferenceError: porcess is not defined
+20231029	20:04:09	c8a5f62e-9666-4920-821a-e9f8102b145c	ReferenceError: porcess is not defined
+20231029	21:56:58	6df3e06d-c265-4c37-923c-ad61f7fa6326	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
+20231029	21:57:21	9584157a-5028-45a7-815f-fe0659ce056a	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
+20231029	21:57:29	74777f0b-5ded-41e4-b608-387e72ca1401	ReferenceError: rolesArray is not defined
+20231029	22:00:11	f47c3543-9c5b-47ef-96ec-df5219cc58cf	ReferenceError: rolesArray is not defined
+20231031	14:12:09	48007ba9-32ad-423e-97a6-974594e750bd	ReferenceError: cookies is not defined
+20231105	18:26:09	decb5c55-7cfb-40fb-85bd-7f69ff0082e7	Error: Unknown authentication strategy "google"
+20231105	18:31:44	121d0273-2b1d-46f4-a1d9-f8f3f120c9fc	Error: Unknown authentication strategy "google"
+20231105	18:33:45	4ae402a0-fc85-4aff-868c-57e12da5181f	Error: Unknown authentication strategy "google"
+20231105	18:33:46	e439e068-a7cf-44af-97ea-d9f9c24ff88a	Error: Unknown authentication strategy "google"
+20231105	18:33:55	7eacec7d-e1e0-4b29-9dbf-7021a935dbb3	Error: Unknown authentication strategy "google"
+20231105	18:35:04	884c6b66-2716-4913-bda2-d6bb2494f2c2	Error: Login sessions require session support. Did you forget to use `express-session` middleware?
+20231105	18:35:04	20501b97-352b-4279-9881-7f7b1e08f311	Error: Login sessions require session support. Did you forget to use `express-session` middleware?
+20231105	18:35:18	8a15add4-1bba-43eb-ae62-b03128b62861	Error: Unknown authentication strategy "google"
+20231105	21:17:47	c397ea4c-5910-43bb-8dc3-26c7f355b8b3	Error: Unknown authentication strategy "google"
+20231105	21:17:51	03f551f3-e453-4805-a343-09e2fce0f92f	Error: Unknown authentication strategy "google"
+20231105	21:17:53	3324cc47-bb98-445b-8e93-b0a02791af2b	Error: Unknown authentication strategy "google"
+20231105	21:30:51	029018d5-fd5e-4c2a-bc25-0614749e0a05	Error: Internal Server Error
+20231105	21:32:56	45fe7a78-9efb-4945-aeb4-ec594935d833	Error: Internal Server Error
+20231106	09:59:44	12af2c11-4b81-4cdc-b7da-f3880515700c	Error: Internal Server Error
+20231106	10:05:39	026fa750-140e-42af-811b-405542a8ac9a	TokenError: Bad Request
+20231106	10:22:09	8d3db37d-5664-4592-86f4-61978c8a1326	Error: Internal Server Error
+20231106	10:22:44	9a63f2ac-04f3-486e-b625-dc76b168ecb9	Error: Internal Server Error
+20231106	10:23:09	9cba5b05-c2f0-4a3b-a0e2-2f85a6d6fd8f	Error: Internal Server Error
+20231106	10:26:20	5d7e84ea-c896-41bf-a50d-1c79d4948cbc	Error: User data not found
+20231106	10:34:33	b00fee69-ed6a-4ddc-b5f1-c5c378b105ba	Error: Internal Server Error
+20231106	10:36:05	41295379-c034-4af9-9ae0-6d91da56ffbe	Error: Internal Server Error
+20231108	01:09:14	bc31f761-8ee8-4506-87a2-0c785ad82b42	Error: Internal Server Error
+20231108	01:12:04	0d5cd990-42a5-4642-86e6-91e182fe71a3	Error: Internal Server Error
+20231108	01:15:49	83b876d5-2d9f-47ac-b73c-7b41ae8f8758	Error: Internal Server Error
+20231108	01:23:13	e875fc5b-82a7-4ebf-9057-ff758a9b62e8	Error: Internal Server Error
+20231108	01:24:49	32712273-7389-4e27-afdc-29ea8c2d1591	Error: Internal Server Error
+20231109	10:47:57	11321956-725a-466b-96e0-3400812ad1cd	SyntaxError: Unexpected end of JSON input
+20231109	10:48:06	6b8ebda5-c5b4-4849-8aa8-9894a695f9e8	SyntaxError: Unexpected end of JSON input
+20231109	10:48:15	8adc9dbc-4a86-48ba-b781-894f6afaf45c	SyntaxError: Unexpected end of JSON input
+20231109	10:48:47	341d1969-05ff-4c3d-a253-b1fed71c8383	SyntaxError: Unexpected end of JSON input
+20231109	10:48:49	2f1be37d-b81a-4405-8ef5-d90b9a9bb58c	SyntaxError: Unexpected end of JSON input
+20231109	10:49:53	e4aab4bb-4368-4150-a175-782c7889f5be	Error: ENOENT: no such file or directory, stat 'C:\Users\dangt\Desktop\kashisagashi\Kashi-Sagashi-Backend\views\404.html'
+20231109	10:50:27	193b4803-4b23-4884-89c0-d8aed5831509	Error: ENOENT: no such file or directory, stat 'C:\Users\dangt\Desktop\kashisagashi\Kashi-Sagashi-Backend\views\404.html'
+20231109	10:56:53	530e713b-cd27-42dc-9429-e4b40e1267b6	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:07	e09d669b-faea-423a-9b1c-208ac49c7479	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:10	e23218f2-7015-4969-8dd6-482e46ddd1b1	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:37	26bbe917-f77c-4bcf-bb6c-0b89c885c44d	SyntaxError: Unexpected token } in JSON at position 30
+20231109	10:57:48	77c71648-0389-4f63-a7d8-d1a418120ad7	SyntaxError: Unexpected token } in JSON at position 30
+20231109	11:01:05	090abb3f-d5b6-4aec-ac76-49ec49ec0cd8	SyntaxError: Unexpected token } in JSON at position 36

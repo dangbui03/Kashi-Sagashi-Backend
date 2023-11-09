@@ -2,22 +2,25 @@ const Band = require("../model/band.js");
 
 async function getAllBand(req, res) {
     const band = await Band.find({});
-    res.send(band);
+    if(!band){
+        return res.status(204).json({ message: "Band not found."})
+    }
+    res.json(band);
 }
 
 async function getBandById(req, res) {
     const band = await Band.findById(req.params.id);
     if (!band) {
-        return res.status(404).json({ message: "Band not found." });
+        return res.status(204).json({ message: "Band not found." });
     }
-    res.send(band);
+    res.json(band);
 }
 
 async function createBand(req, res) {
     const newBand = new Band(req.body);
     const savedBand = await newBand.save();
     if (savedBand) {
-        res.send(savedBand);
+        res.status(201).json(savedBand);
     }
 }
 
@@ -26,15 +29,15 @@ async function updateBand(req, res) {
         new: true,
     });
     if (!band) {
-        return res.status(404).send();
+        return res.status(404).json({ message: "Band not found"});
     }
-    res.send(band);
+    res.status(200).json(band);
 }
 
 async function deleteBand(req, res) {
     const band = await Band.findByIdAndDelete(req.params.id);
     if (!band) {
-        return res.status(404).send();
+        return res.status(404).json({ message: "Band not found"});
     }
     res.send(true);
 }
@@ -92,7 +95,6 @@ function getSongInBand(req, res) {
             res.status(500).json({ message: "Song error. Please try again." });
         });
 }
-
 
 
 module.exports = {

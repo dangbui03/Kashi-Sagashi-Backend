@@ -1,6 +1,7 @@
 const express = require('express')
-const artistCtl = require('../controllers/artistController.js')
+const artistCtl = require('../controllers/artistController')
 const router = express.Router()
+
 router.get('/artist', artistCtl.getAllArtist)
 router.get('/artist/:id', artistCtl.getArtistById)
 router.get('/artist/:artistID/album/', artistCtl.getAlbumInArtist)

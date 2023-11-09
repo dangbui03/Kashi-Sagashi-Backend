@@ -2,68 +2,44 @@ const Song = require("../model/song.js");
 
 const getAllSong = async (req, res) =>{
     const song = await Song.find();
-        if(!song){
-            return res.status(204).json({ message: "Song not found."});
-        }
-        res.json(song);
-    // }
-    // else{
-    //     res.status(500).json({ message: "Server error. Please try again." });
-    // };
+    if(!song){
+        return res.status(204).json({ message: "Song not found."});
+    }
+    res.json(song);
 }
 
 async function getSongById(req, res) {
-    const song = await Song.findById(req.params.id)
-    .then((song) => {
-        if (!song) {
-            return res.status(404).json({ message: "Song not found." });
-        }
-        res.status(200).json(song);
-    })
-    .catch((error) => {
-        res.status(500).json({ message: "Server error. Please try again." });
-    });
+    const song = await Song.findById(req.params.id);
+    if (!song) {
+        return res.status(204).json({ message: "Song not found." });
+    }
+    res.json(song);
 }
 
 async function createSong(req, res) {
     const newSong = new Song(req.body);
-    const savedSong = await newSong.save()
-    .then((savedSong) => {
-        if (savedSong) {
-            return res.status(201).json(newSong);
-        }
-    })
-    .catch((error) => {
-        res.status(500).json({ message: "Server error. Please try again." });
-    });
+    const savedSong = await newSong.save();
+    if (savedSong) {
+        return res.status(201).json(newSong);
+    }
 }
 
 async function updateSong(req, res) {
     const song = await Song.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
-    })
-    .then((song) => {
-        if (!song) {
-            return res.status(404).json({ message:"Song not found"});
-        }
-        res.status(200).json(song);
-    })
-    .catch((error) => {
-        res.status(500).json({ message: "Server error. Please try again." });
     });
+    if (!song) {
+        return res.status(404).json({ message:"Song not found"});
+    }
+    res.status(200).json(song);
 }
 
 async function deleteSong(req, res) {
     const song = await Song.findByIdAndDelete(req.params.id)
-    .then((song) => {
-        if (!song) {
-            return res.status(404).json({ message:"Song not found"});
-        }
-        res.status(204).json();
-    })
-    .catch((error) => {
-        res.status(500).json({ message: "Server error. Please try again." });
-    });
+    if (!song) {
+        return res.status(404).json({ message:"Song not found"});
+    }
+    res.status(204).json();
 }
 
 function getAlbumInSong(req, res) {
