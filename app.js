@@ -54,21 +54,21 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 // Router require
 const normalAuth = require('./src/routes/authNormal')
 const googleAuthRoute = require('./src/routes/authGoogle')
-const song = require('./src/routes/songRoute')
-const album = require('./src/routes/albumRoute')
-const band = require('./src/routes/bandRoute')
-const artist = require('./src/routes/artistRoute')
+const song = require('./src/routes/api/songRoute')
+const album = require('./src/routes/api/albumRoute')
+const band = require('./src/routes/api/bandRoute')
+const artist = require('./src/routes/api/artistRoute')
+
 // Router use
 app.use('/', require('./src/routes/root'));
 app.use('/register', require('./src/routes/register'));
 app.use('/auth', [normalAuth, googleAuthRoute] );
-
 app.use('/refresh', require('./src/routes/refresh'));
 app.use('/logout', require('./src/routes/logout'));
 
-// app.use(verifyJWT);
-app.use('/employees', require('./src/routes/api/employees'));
+app.use(verifyJWT);
 app.use('/api', [song, album, band, artist]);
+
 app.all('*', (req, res) => {
   res.status(404);
   if (req.accepts('html')) {

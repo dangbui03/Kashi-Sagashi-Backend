@@ -64,8 +64,8 @@ function getArtistInBand(req, res) {
     const bandID = req.params.bandID;
     Band.findById(bandID)
         .populate("artist.artistID")
-        .then((band) => {
-            if (!band) {
+        .then((bandID) => {
+            if (!bandID) {
                 return res.status(404).json({ message: "Band not found." });
             }
             const artist = band.artist.map(

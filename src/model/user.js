@@ -12,11 +12,14 @@ const userSchema = new mongoose.Schema(
       min: 8,
       unique: true,
     },
+    username:{
+      type: String,
+      unique: true
+    },
     googleId: {
       type: String,
-      unique: true,
     },
-    role: {
+    roles: {
       User: {
         type: Number,
         default: 2001,

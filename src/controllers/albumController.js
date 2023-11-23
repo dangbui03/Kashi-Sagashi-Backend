@@ -20,7 +20,7 @@ async function createAlbum(req, res) {
     const newAlbum = new Album(req.body);
     const savedAlbum = await newAlbum.save();
     if (savedAlbum) {
-       return res.status(201).json(savedAlbum);
+        return res.status(201).json(savedAlbum);
     }
 }
 

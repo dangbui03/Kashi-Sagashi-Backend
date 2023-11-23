@@ -1,4 +1,8 @@
 const Song = require("../model/song.js");
+const Artist = require("../model/artist.js")
+const Album = require("../model/album.js")
+const albumController = require('./albumController.js');
+const artistController = require('./artistController.js')
 
 const getAllSong = async (req, res) =>{
     const song = await Song.find();
@@ -17,14 +21,49 @@ async function getSongById(req, res) {
 }
 
 async function createSong(req, res) {
-    const newSong = new Song(req.body);
-    const savedSong = await newSong.save();
-    if (savedSong) {
+    try {
+        const data = req.body;
+        
+        const foundSong = await Song.findOne({ Name: data.Name });
+        if(foundSong) {
+            return res.status(404).json({
+                message: `Song '${foundSong}' already exists.`
+            });
+        }   
+
+        let artistID, albumID;
+        const foundArtist = await Artist.findOne({ Name: data.Artist });
+        if(!foundArtist) {
+            const newArtist = await artistController.createArtist({ Name: foundArtist});
+            artistID = newArtist._id;
+        } else {
+            artistID = foundArtist._id;
+        }
+        const foundAlbum = await Album.findOne({ Name: data.Album });
+        if(!foundAlbum) {
+            const newAlbum = await albumController.createAlbum({ Name: foundAlbum});
+            albumID = newAlbum._id;
+        } else {
+            albumID = foundAlbum._id;
+        }
+
+        const newSong = await Song.create({
+            Name: data.Name,
+            Link: data.Link,
+            Release_date: data.Release_date,
+            Lyrics: data.Lyrics,
+            Artist: artistID,
+            Albums: albumID,
+        });
+        
         return res.status(201).json(newSong);
+    } catch (error) {
+        console.error('Error creating song:', error);
+        return res.status(500).json({ error: 'Internal server error' });
     }
 }
 
-async function updateSong(req, res) {
+const updateSong = async (req, res) => {
     const song = await Song.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
     });

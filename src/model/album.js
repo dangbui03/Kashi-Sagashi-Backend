@@ -1,33 +1,35 @@
 const mongoose = require("mongoose");
 
 const albumSchema = new mongoose.Schema ({
-    name: String,
-    release_date: Date,
-    link: String,
-    songs: [
+    Name: String,
+    Release_date: Date,
+    Link: String,
+    Songs: [
         {
-            songID: {
+            SongID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Song",
             }
         }
     ],
-    artists: [
+    Artists: [
         {
-            artistID: {
+            ArtistID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Artist",
             }
         },
     ],
-    bands: [
+    Bands: [
         {
-            bandID: {
+            BandID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Band"
             }
         }
     ]
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Album', albumSchema);

@@ -1,6 +1,11 @@
 const express = require('express')
-const songCtl = require('../controllers/songController')
+const songCtl = require('../../controllers/songController')
 const router = express.Router()
+
+router.route('/song')
+    .get(songCtl.getAllSong)
+
+router.route('/song/:id')
 
 router.get('/song', songCtl.getAllSong)
 router.get('/song/:id', songCtl.getSongById)

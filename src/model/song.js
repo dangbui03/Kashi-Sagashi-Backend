@@ -1,42 +1,36 @@
 const mongoose = require('mongoose');
 
 const songSchema = new mongoose.Schema({
-    name: {type: String},
-    lyrics: {type: String},
-    link: {type: String},
-    release_date: {type: Date},
-    albums:[
+    Name: {type: String},
+    Lyrics: {type: String},
+    Link: {type: String},
+    Release_date: {type: Date},
+    Albums:[
         {
-            albumID: {
+            AlbumID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Album',
             }
         }
     ],
-    singers: [
+    Artist: [
         {
-            artistID: {
+            ArtistID: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Artist',
             }
-        }
+        },
     ],
-    composers: [
+    Bands: [
         {
-            artistID: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Artist',
-            }
-        }
-    ],
-    bands: [
-        {
-            bandId:{
+            BandId:{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Band',
             }
         }
     ],
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Song', songSchema);
