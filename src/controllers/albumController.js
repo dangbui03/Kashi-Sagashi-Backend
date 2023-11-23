@@ -8,7 +8,7 @@ async function getAllAlbum(req, res) {
     res.json(album);
 }
 
-async function getAlbumById(req, res) {
+async function getAlbumById(req, res) { 
     const album = await Album.findById(req.params.id);
     if (!album) {
         return res.status(204).json({ message: "Album not found." });
