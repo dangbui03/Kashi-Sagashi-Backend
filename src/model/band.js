@@ -1,33 +1,36 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const bandSchema = new mongoose.Schema ({
-    name: String,
-    establish_date: Date,
-    country: String,
-    artist: [
+    Name: String,
+    Establish_date: Date,
+    Country: String,
+    Role: String,
+    Artists: [
         {
-            artistID: {
+            ArtistID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Artist",
             }
         }
     ],
-    song: [
+    Songs: [
         {
-            songID: {
+            SongID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Song",
             }
         }
     ],
-    albums: [
+    Albums: [
         {
-            albumID: {
+            AlbumID: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Album",
             }
         }
     ],
+}, {
+    timestamps: true
 })
 
-module.exports = mongoose.model("Band", artistSchema);
+module.exports = mongoose.model("Band", bandSchema);

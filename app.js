@@ -54,7 +54,10 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 // Router require
 const normalAuth = require('./src/routes/authNormal')
 const googleAuthRoute = require('./src/routes/authGoogle')
-const song = require('./src/routes/api/song')
+const song = require('./src/routes/api/songRoute')
+const album = require('./src/routes/api/albumRoute')
+const band = require('./src/routes/api/bandRoute')
+const artist = require('./src/routes/api/artistRoute')
 
 // Router use
 app.use('/', require('./src/routes/root'));
@@ -64,8 +67,7 @@ app.use('/refresh', require('./src/routes/refresh'));
 app.use('/logout', require('./src/routes/logout'));
 
 app.use(verifyJWT);
-app.use('/employees', require('./src/routes/api/employees'));
-app.use('/api', [song ]);
+app.use('/api', [song, album, band, artist]);
 
 app.all('*', (req, res) => {
   res.status(404);
@@ -85,3 +87,4 @@ const port = process.env.API_PORT;
 app.listen(port, () => {
   console.log(`listen on port ${port}`);
 });
+

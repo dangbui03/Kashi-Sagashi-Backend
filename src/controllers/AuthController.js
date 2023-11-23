@@ -6,15 +6,17 @@ const handleLogin = async (req, res) => {
     const { email, pwd } = req.body;
     if (!email || !pwd) return res.status(400).json({ 'message': 'Email and password are required.' });
     
+    //checkfoundUser
     const foundUser =  await User.findOne({ email: email }).exec();
-    if (!foundUser) return res.sendStatus(404).json("Incorrect username");; //Unauthorized 
+    if (!foundUser) return res.status(404).json({'message': "Incorrect username"});; //Unauthorized 
+    
     // evaluate password 
     const match = await bcrypt.compare(pwd, foundUser.password);
     if (!match) {
-        res.sendStatus(404).json("Incorrect password");
-      }
+        return res.status(404).json({'message': "Incorrect password"}); 
+    }
     if (match && foundUser) {
-        const roles = Object.values(foundUser.role).filter(Boolean);
+        const roles = Object.values(foundUser.roles).filter(Boolean);
         // create JWTs
         const accessToken = jwt.sign(
             {
