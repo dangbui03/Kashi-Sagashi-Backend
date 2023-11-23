@@ -7,7 +7,6 @@ const session = require('express-session')
 const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
-const createError = require("http-errors");
 const passport = require('passport');
 
 require('./src/configs/passport')
@@ -18,7 +17,7 @@ const app = express();
 const corsOptions = require('./src/configs/corsOptions')
 const verifyJWT = require('./src/middleware/verifyJWT');
 const errorHandler = require('./src/middleware/errorHandler');
-//const { logger } = require('./src/middleware/logEvents');
+const { logger } = require('./src/middleware/logEvents');
 const credentials = require('./src/middleware/credentials');
 
 //database connection
@@ -27,9 +26,9 @@ const db = require("./src/configs/db");
 db.connect();
 
 //use setup
-//app.use(logger);
+app.use(logger);
 app.use(credentials); 
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: false }));
