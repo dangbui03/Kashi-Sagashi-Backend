@@ -12,9 +12,8 @@ const userSchema = new mongoose.Schema(
       min: 8,
       unique: true,
     },
-    username:{
+    username: {
       type: String,
-      unique: true
     },
     googleId: {
       type: String,

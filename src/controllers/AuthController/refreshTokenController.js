@@ -1,10 +1,10 @@
-const User = require ('../model/user')
+const User = require ('../../model/user')
 const jwt = require('jsonwebtoken');
 
 const handleRefreshToken = async (req, res) => {
     try {
         const cookies = req.cookies;
-        if (!cookies?.jwt) return res.sendStatus(401);
+        if (!cookies?.jwt) return res.status(401).json({ message: "Jwt not found" });;
         const refreshToken = cookies.jwt;
 
         const foundUser =  await User.findOne({ refreshToken }).exec();
@@ -26,7 +26,7 @@ const handleRefreshToken = async (req, res) => {
                     process.env.ACCESS_TOKEN_SECRET,
                     { expiresIn: '15m' }
                 );
-                res.json({ roles, accessToken });
+                res.status(201).json({ roles, accessToken });
             }
         );
     } catch (error) {

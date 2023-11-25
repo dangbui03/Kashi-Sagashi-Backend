@@ -8,7 +8,7 @@ const OTPSchema = new mongoose.Schema(
         },
         OTP: {
             type: String
-        },
+        }, 
         createdAt: Date,
         expiredAt: Date,
     },

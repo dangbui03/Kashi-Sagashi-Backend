@@ -1,4 +1,4 @@
-const Band = require("../model/band.js");
+const Band = require("../../model/band.js");
 
 async function getAllBand(req, res) {
     const band = await Band.find({});

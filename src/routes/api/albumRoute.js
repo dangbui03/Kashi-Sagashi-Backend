@@ -1,5 +1,5 @@
 const express = require('express')
-const albumCtl = require('../../controllers/albumController')
+const albumCtl = require('../../controllers/SongController/albumController')
 const router = express.Router()
 const ROLES_LIST = require('../../configs/roles_list');
 const verifyRoles = require('../../middleware/verifyRoles');

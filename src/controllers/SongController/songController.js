@@ -1,6 +1,6 @@
-const Song = require("../model/song.js");
-const Artist = require("../model/artist.js")
-const Album = require("../model/album.js")
+const Song = require("../../model/song.js");
+const Artist = require("../../model/artist.js")
+const Album = require("../../model/album.js")
 const albumController = require('./albumController.js');
 const artistController = require('./artistController.js')
 

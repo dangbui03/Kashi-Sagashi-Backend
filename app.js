@@ -64,6 +64,7 @@ app.use('/register', require('./src/routes/register'));
 app.use('/auth', [normalAuth, googleAuthRoute] );
 app.use('/refresh', require('./src/routes/refresh'));
 app.use('/logout', require('./src/routes/logout'));
+app.use('/otp', require('./src/routes/OTP'))
 
 app.use(verifyJWT);
 app.use('/api', [song, album, band, artist]);
