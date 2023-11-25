@@ -70,3 +70,5 @@
 20231125	16:18:19	dcc71b24-27d6-4892-a3f0-734d146aacce	GET	undefined	/auth/google
 20231125	16:18:49	4eff856e-9c6f-4be9-a2cc-fe41344bd602	GET	undefined	/auth/google
 20231125	16:19:54	28e2baf0-a49e-44cb-aa84-d1aa7e84089b	GET	undefined	/auth/google
+20231125	16:42:23	63626f09-d13e-4a20-ab74-10e589d835dc	POST	undefined	/email_verification
+20231125	16:44:04	7419ec70-158c-48c5-af4e-a9ba97ef9110	POST	undefined	/auth/login
