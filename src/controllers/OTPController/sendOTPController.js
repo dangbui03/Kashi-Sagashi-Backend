@@ -42,7 +42,7 @@ const sendOTP = async ({ email, subject, message, duration = 1 }) => {
     }
 }
 
-const OTPController = async(req, res) => {
+const sendOTPController = async(req, res) => {
     try {
         const { email, subject, message, duration } = req.body;
 
@@ -60,5 +60,5 @@ const OTPController = async(req, res) => {
 }
 
 module.exports = {
-    OTPController
+    sendOTPController
 }

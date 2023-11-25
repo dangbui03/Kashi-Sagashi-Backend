@@ -55,3 +55,6 @@
 20231125	01:36:08	c48c68f3-c5e7-4f88-864d-978ce4bab9dd	POST	undefined	/otp
 20231125	01:38:23	4747762b-3bd3-4ca0-a588-d1dbdad65fb9	POST	undefined	/otp
 20231125	11:19:10	21dd35dd-b0a1-4d7b-88c9-69dde6ff21fb	POST	undefined	/otp
+20231125	11:42:57	a3051246-c875-4872-9b7f-36b4a78c16ff	POST	undefined	/verifyotp
+20231125	11:43:13	66ce7b21-bba6-4384-a5d6-6713edf62097	POST	undefined	/sendotp
+20231125	11:44:03	2000dded-488d-4182-ad94-7727e5ff4e2a	POST	undefined	/otp/verifyotp
