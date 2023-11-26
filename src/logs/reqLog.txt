@@ -270,3 +270,7 @@
 20231126	20:20:41	66bcdf65-77ea-4989-be9c-b15b1e6d9f0b	POST	undefined	/auth/register
 20231126	20:20:53	254e6a13-94d5-4f44-b609-15b5821588b3	POST	undefined	/auth/login
 20231126	20:52:57	34283223-b5d1-49ee-8dd2-eab7de0e53a5	POST	undefined	/forgotpass
+20231126	21:14:20	8e6a37c5-3650-4f4b-91ab-feb491df3f89	POST	undefined	/forgotpass/reset
+20231126	21:14:40	15ef1de3-ba95-4ff8-a5c7-5e75f25722e7	POST	undefined	/auth/login
+20231126	21:14:49	359ab4c3-9619-4d13-847c-b5032474df69	POST	undefined	/auth/login
+20231126	21:14:58	daaf6eb2-5cc4-492c-8772-3e4101b0a2fc	POST	undefined	/auth/login
