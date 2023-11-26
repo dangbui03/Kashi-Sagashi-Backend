@@ -11,7 +11,7 @@ const sendVerificationOTPEmail = async ({email}) => {
         const otpDetails = {
             email: email,
             subject: "Email Verification",
-            message: "Verify your email with the code below",
+            message: "Verify your email with the code below.",
             duration: 1,
         };
         
@@ -22,7 +22,7 @@ const sendVerificationOTPEmail = async ({email}) => {
     }
 }   
 
-const sendOTPEmailVerificationController = async(req, res) => {
+const sendOTPEmailVerificationController = async (req, res) => {
     try {
         const { email } = req.body;
         if (!email) return res.status(403).json({ message: "An email is required "});

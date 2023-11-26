@@ -63,6 +63,7 @@ app.use('/', require('./src/routes/root'));
 app.use('/auth', [normalAuth, googleAuthRoute]);
 app.use('/otp', require('./src/routes/verifyEmail/OTP'))
 app.use('/verifyemail', require('./src/routes/verifyEmail/emailVerification'))
+app.use('/forgotpass', require('./src/routes/forgotPass/forgotPass'))
 
 app.use(verifyJWT);
 app.use('/api', [song, album, band, artist]);
