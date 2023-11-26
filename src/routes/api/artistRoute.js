@@ -1,5 +1,5 @@
 const express = require('express')
-const artistCtl = require('../../controllers/artistController')
+const artistCtl = require('../../controllers/SongController/artistController')
 const verifyRoles = require('../../middleware/verifyRoles')
 const ROLES_LIST = require('../../configs/roles_list')
 const router = express.Router()

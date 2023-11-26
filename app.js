@@ -51,8 +51,8 @@ app.use(passport.session());
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 // Router require
-const normalAuth = require('./src/routes/authNormal')
-const googleAuthRoute = require('./src/routes/authGoogle')
+const normalAuth = require('./src/routes/auth/authNormal')
+const googleAuthRoute = require('./src/routes/auth/authGoogle')
 const song = require('./src/routes/api/songRoute')
 const album = require('./src/routes/api/albumRoute')
 const band = require('./src/routes/api/bandRoute')
@@ -60,10 +60,10 @@ const artist = require('./src/routes/api/artistRoute')
 
 // Router use
 app.use('/', require('./src/routes/root'));
-app.use('/register', require('./src/routes/register'));
-app.use('/auth', [normalAuth, googleAuthRoute] );
-app.use('/refresh', require('./src/routes/refresh'));
-app.use('/logout', require('./src/routes/logout'));
+app.use('/auth', [normalAuth, googleAuthRoute]);
+app.use('/otp', require('./src/routes/verifyEmail/OTP'))
+app.use('/verifyemail', require('./src/routes/verifyEmail/emailVerification'))
+app.use('/forgotpass', require('./src/routes/forgotPass/forgotPass'))
 
 app.use(verifyJWT);
 app.use('/api', [song, album, band, artist]);

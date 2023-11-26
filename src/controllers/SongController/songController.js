@@ -1,6 +1,6 @@
-const Song = require("../model/song.js");
-const Artist = require("../model/artist.js")
-const Album = require("../model/album.js")
+const Song = require("../../model/song.js");
+const Artist = require("../../model/artist.js")
+const Album = require("../../model/album.js")
 const albumController = require('./albumController.js');
 const artistController = require('./artistController.js')
 
@@ -29,7 +29,7 @@ async function createSong(req, res) {
             return res.status(404).json({
                 message: `Song '${foundSong}' already exists.`
             });
-        }   
+        }
 
         let artistID, albumID;
         const foundArtist = await Artist.findOne({ Name: data.Artist });
@@ -39,6 +39,7 @@ async function createSong(req, res) {
         } else {
             artistID = foundArtist._id;
         }
+
         const foundAlbum = await Album.findOne({ Name: data.Album });
         if(!foundAlbum) {
             const newAlbum = await albumController.createAlbum({ Name: foundAlbum});

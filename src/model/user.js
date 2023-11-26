@@ -4,17 +4,16 @@ const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      require: true,
+      // required: true,
       unique: true,
     },
     password: {
       type: String,
-      min: 8,
+      minlength: 8,
       unique: true,
     },
-    username:{
+    username: {
       type: String,
-      unique: true
     },
     googleId: {
       type: String,
@@ -28,8 +27,13 @@ const userSchema = new mongoose.Schema(
     },
     profileImage: String,
     refreshToken: String,
+    verified: {
+      type: Boolean,
+      default: false,
+    }
   },
-  { timestamps: true }
+  { timestamps: true },
+  { typeKey: '$type' },
 );
 
 module.exports = mongoose.model("user", userSchema);

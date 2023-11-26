@@ -1,11 +1,11 @@
-const User = require("../model/user");
+const User = require("../../model/user");
 const jwt = require("jsonwebtoken");
 
 const handleLogout = async (req, res) => {
   try {
     // On client, also delete the accessToken
     const cookies = req.cookies;
-    if (!cookies?.jwt) return res.sendStatus(401);
+    if (!cookies?.jwt) return res.status(401).json({ message: "Jwt not found" });
     const refreshToken = cookies.jwt;
 
     // Is refreshToken in db?
@@ -16,7 +16,7 @@ const handleLogout = async (req, res) => {
         sameSite: "None",
         secure: true,
       }); //
-      return res.sendStatus(204).json("cookies clear");
+      return res.status(201).json({ message: "Cookies Clear" });
     }
 
     // Delete refreshToken in db
@@ -25,7 +25,7 @@ const handleLogout = async (req, res) => {
     console.log(result);
 
     res.clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "None" }); //
-    res.sendStatus(204).json("success logout");
+    res.status(201).json({ message: "Success Logout" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

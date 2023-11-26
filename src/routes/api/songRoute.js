@@ -1,5 +1,5 @@
 const express = require('express')
-const songCtl = require('../../controllers/songController')
+const songCtl = require('../../controllers/SongController/songController')
 const router = express.Router()
 
 router.route('/song')
