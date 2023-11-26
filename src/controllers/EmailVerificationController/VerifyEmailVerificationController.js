@@ -26,4 +26,4 @@ const verifyOTPEmailVerificationController = async(req, res) => {
     }
 }
 
-module.exports = { verifyOTPEmailVerificationController }
+module.exports = { verifyOTPEmailVerificationController, verifyUserEmail }
