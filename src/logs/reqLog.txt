@@ -259,3 +259,13 @@
 20231126	19:48:12	ddd1a937-54e7-4946-ac09-21b600b4007b	POST	undefined	/verifyemail/verifyemail
 20231126	19:53:02	fc134937-46a5-4c36-bfd4-ccbf628556e5	POST	undefined	/verifyemail/verifyemail
 20231126	19:53:49	d090f5b3-87f4-466b-8f16-ef6dbb04bb1b	POST	undefined	/verifyemail/verifyemail
+20231126	20:08:57	e7ff9b3c-9c6a-4c9a-b28d-644ce975a955	POST	undefined	/auth/register
+20231126	20:09:18	2bed72e7-105f-45ce-83a6-d85c74abbd97	POST	undefined	/auth/register
+20231126	20:11:00	5215e5ba-5241-4ca9-9189-c6a344982f28	POST	undefined	/auth/register
+20231126	20:11:42	44000e5d-d628-44ca-9704-7ab7fe93f061	POST	undefined	/auth/register
+20231126	20:14:15	bd1bd1f4-4852-4efa-a6ab-c14376c98ce3	POST	undefined	/auth/register
+20231126	20:19:41	226ecd9d-5c31-4225-86c1-acf82c068100	POST	undefined	/auth/register
+20231126	20:20:20	18e5ee2c-44c9-420e-aab1-17c9feba631e	POST	undefined	/verifyemail/verifyemail
+20231126	20:20:26	d0f3de2b-b5e2-4420-b4a9-e38a12f71490	POST	undefined	/auth/login
+20231126	20:20:41	66bcdf65-77ea-4989-be9c-b15b1e6d9f0b	POST	undefined	/auth/register
+20231126	20:20:53	254e6a13-94d5-4f44-b609-15b5821588b3	POST	undefined	/auth/login

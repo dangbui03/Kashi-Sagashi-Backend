@@ -11,6 +11,11 @@ const handleLogin = async (req, res) => {
         const foundUser =  await User.findOne({ email: email }).exec();
         if (!foundUser) return res.status(404).json({'message': "Incorrect Username"});; //Unauthorized 
         
+        // check user or veirified?
+        if(!foundUser.verified) {
+            return res.status(404).json({ message: "Email hasn't been verified yet. Check your inbox."});
+        }
+
         // evaluate password 
         const match = await bcrypt.compare(pwd, foundUser.password);
         if (!match) {

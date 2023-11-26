@@ -1,5 +1,6 @@
 const User = require("../../model/user");
 const bcrypt = require("bcrypt");
+const sendOTPEmailVerificationController = require('../EmailVerificationController/SendEmailVerificationController')
 
 const handleNewUser = async (req, res) => {
   const { email, pwd, username } = req.body;
@@ -27,7 +28,9 @@ const handleNewUser = async (req, res) => {
       password: hashedPwd,
     });
     const user = await result.save();
-
+    
+    const a = await sendOTPEmailVerificationController.sendVerificationOTPEmail({email});
+    console.log(a);
     res.status(201).json({ message: `New user ${email} created!`, user });
   } catch (err) {
     res.status(500).json({ message: err.message });
