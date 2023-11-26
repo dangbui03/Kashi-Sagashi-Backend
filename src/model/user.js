@@ -4,12 +4,12 @@ const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
-      require: true,
+      // required: true,
       unique: true,
     },
     password: {
       type: String,
-      min: 8,
+      minlength: 8,
       unique: true,
     },
     username: {
@@ -28,7 +28,8 @@ const userSchema = new mongoose.Schema(
     profileImage: String,
     refreshToken: String,
   },
-  { timestamps: true }
+  { timestamps: true },
+  { typeKey: '$type' },
 );
 
 module.exports = mongoose.model("user", userSchema);

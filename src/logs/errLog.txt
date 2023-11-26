@@ -51,3 +51,6 @@
 20231109	11:01:05	090abb3f-d5b6-4aec-ac76-49ec49ec0cd8	SyntaxError: Unexpected token } in JSON at position 36
 20231116	23:11:13	17830414-52d1-486f-98f3-2406c10260de	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
 20231116	23:11:21	cc89e55d-7273-46f8-86dd-5c5a3e2dfa71	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
+20231126	18:52:48	9f3f892e-0482-4067-93d0-fc7f39889e9e	SyntaxError: Unexpected token } in JSON at position 43
+20231126	19:16:44	965eb1a8-5b9f-4f00-883c-01cfd1cbbe37	SyntaxError: Unexpected token ' in JSON at position 16
+20231126	19:16:47	efb0f244-4099-409f-9f0e-6926cc99c6b9	SyntaxError: Unexpected token ' in JSON at position 16

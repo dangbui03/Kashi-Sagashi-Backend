@@ -37,4 +37,4 @@ const verifyOTPController = async (req, res) => {
     }
 }
 
-module.exports = { verifyOTPController };
+module.exports = { verifyOTPController, verifyOTP };

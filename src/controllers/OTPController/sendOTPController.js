@@ -45,7 +45,7 @@ const sendOTP = async ({ email, subject, message, duration = 1 }) => {
 const sendOTPController = async(req, res) => {
     try {
         const { email, subject, message, duration } = req.body;
-
+        console.log(email, subject)
         const createOTP = await sendOTP({
             email, 
             subject,
@@ -60,5 +60,6 @@ const sendOTPController = async(req, res) => {
 }
 
 module.exports = {
-    sendOTPController
+    sendOTPController,
+    sendOTP
 }
