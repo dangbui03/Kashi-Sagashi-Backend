@@ -1,13 +1,13 @@
 const User = require('../../model/user');
-const  verifyOTPController  = require('../OTPController/verifyOTPController')
-const deleteOTP = require('../OTPController/deleteOTP')
+const verifyOTPController  = require('../OTPController/verifyOTPController')
+const deleteOTPController = require('../OTPController/deleteOTP')
 
 const verifyUserEmail = async ({ email, otp }) => {
     try {
         const validOTP = await verifyOTPController.verifyOTP({ email, otp });
         if (!validOTP) throw Error ("Invalid code passed. Check your inbox.");
 
-        await deleteOTP(email);
+        await deleteOTPController.deleteOTP({ email });
         return;
     } catch (error) {
         throw error;

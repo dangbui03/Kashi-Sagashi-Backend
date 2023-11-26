@@ -8,4 +8,4 @@ const deleteOTP = async ({ email }) => {
     }
 }
 
-module.exports = deleteOTP;
+module.exports = {deleteOTP};
