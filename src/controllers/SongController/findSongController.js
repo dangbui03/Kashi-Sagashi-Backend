@@ -1,24 +1,36 @@
 const bm25 = require('wink-bm25-text-search');
-const winkNLP = require('wink-nlp');
-const model = require('wink-eng-lite-web-model');
-const nlp = winkNLP(model);
-const its = nlp.its;
+var nlp = require( 'wink-nlp-utils' );
+var docs = require( 'wink-bm25-text-search/sample-data/demo-data-for-wink-bm25.json' );
+var getSpottedTerms = require('wink-bm25-text-search/runkit/get-spotted-terms.js');
+// const winkNLP = require('wink-nlp');
+// const model = require('wink-eng-lite-web-model');
+// const nlp = winkNLP(model);
+// const its = nlp.its;
+
 
 const Song2 = require("../../model/song2.js");
 
-const prepTask = function (text) {
-    const tokens = [];
-    nlp.readDoc(text)
-      .tokens()
-      .filter((t) => t.out(its.type) === 'word' && !t.out(its.stopWordFlag))
-      .each((t) => {
-        const stemmedWord = t.out(its.stem);
-        const isNegated = t.out(its.negationFlag);
-        tokens.push(isNegated ? '!' + stemmedWord : stemmedWord);
-      });
+// const prepTask = function (text) {
+//     const tokens = [];
+//     nlp.readDoc(text)
+//       .tokens()
+//       .filter((t) => t.out(its.type) === 'word' && !t.out(its.stopWordFlag))
+//       .each((t) => {
+//         const stemmedWord = t.out(its.stem);
+//         const isNegated = t.out(its.negationFlag);
+//         tokens.push(isNegated ? '!' + stemmedWord : stemmedWord);
+//       });
   
-    return tokens;
-  };
+//     return tokens;
+//   };
+
+const pipe = [
+  nlp.string.lowerCase,
+  nlp.string.tokenize0,
+  nlp.tokens.removeWords,
+  nlp.tokens.stem,
+  nlp.tokens.propagateNegations
+];
 
 const loadAndSearchLyrics = async (req, res) =>  {
     try {
@@ -26,12 +38,12 @@ const loadAndSearchLyrics = async (req, res) =>  {
       if (!lyricQuery) {
         return res.status(400).json({ error: 'Lyric in request body is required' });
       }
-  
+      
       const searchEngine = bm25();
   
       // Define configuration for the search
-      searchEngine.defineConfig({ fldWeights: { lyrics: 1 } });
-      searchEngine.definePrepTasks([prepTask]);
+      searchEngine.defineConfig({ fldWeights: { Lyrics: 1, body: 2 } });
+      searchEngine.definePrepTasks(pipe);
   
       // Fetch all songs from the MongoDB collection
       const songs = await Song2.find({}, 'Lyrics'); // Adjust fields as needed
