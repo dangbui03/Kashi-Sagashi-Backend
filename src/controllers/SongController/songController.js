@@ -1,8 +1,7 @@
 const Song = require("../../model/song.js");
 const Artist = require("../../model/artist.js")
 const Album = require("../../model/album.js")
-const albumController = require('./albumController.js');
-const artistController = require('./artistController.js')
+const Band = require("../../model/band.js")
 
 const getAllSong = async (req, res) =>{
     const song = await Song.find();
