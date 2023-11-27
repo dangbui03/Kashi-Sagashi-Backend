@@ -274,3 +274,15 @@
 20231126	21:14:40	15ef1de3-ba95-4ff8-a5c7-5e75f25722e7	POST	undefined	/auth/login
 20231126	21:14:49	359ab4c3-9619-4d13-847c-b5032474df69	POST	undefined	/auth/login
 20231126	21:14:58	daaf6eb2-5cc4-492c-8772-3e4101b0a2fc	POST	undefined	/auth/login
+20231127	11:06:01	c18f947a-ca8c-4c33-be26-a3a01c202548	POST	undefined	/api/song2
+20231127	11:06:21	9b442be2-0a68-4203-8457-72bf9bf2bc8d	POST	undefined	/api/song2
+20231127	11:06:34	7d94bf58-84e2-425f-980d-3bf548dbbd96	POST	undefined	/api/song2
+20231127	11:06:47	206d3966-8eae-4b01-953a-23dc7f7bd8c6	POST	undefined	/api/song2
+20231127	11:07:00	fd44f7ad-6e72-49a4-bff0-fa4b2ee06417	POST	undefined	/api/song2
+20231127	11:07:17	2e9aa729-6d78-44f0-9ec1-5be82cbe08cf	POST	undefined	/api/song2
+20231127	11:10:03	660444ec-3538-472e-b61b-c9eedfcd1370	GET	undefined	/api/song2
+20231127	11:10:37	da67f72e-f680-416b-9eaf-7f068a0cd13d	POST	undefined	/api/song2
+20231127	11:11:16	e66fb203-b364-4c14-8950-ec58f72d4d54	GET	undefined	/api/searchlyrics
+20231127	11:15:16	79a91237-a746-4e74-a9e1-03560b2a6dcd	GET	undefined	/api/searchlyrics
+20231127	11:17:03	62bddc99-61cf-4107-871d-b80e55f97b21	GET	undefined	/api/searchlyrics
+20231127	11:17:04	c688f45d-6e8e-4f3b-a8a8-a0e81531b492	GET	undefined	/api/searchlyrics

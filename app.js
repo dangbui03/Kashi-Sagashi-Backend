@@ -57,6 +57,7 @@ const song = require('./src/routes/api/songRoute')
 const album = require('./src/routes/api/albumRoute')
 const band = require('./src/routes/api/bandRoute')
 const artist = require('./src/routes/api/artistRoute')
+const findSong = require('./src/routes/api/song2Route')
 
 // Router use
 app.use('/', require('./src/routes/root'));
@@ -65,8 +66,8 @@ app.use('/otp', require('./src/routes/verifyEmail/OTP'))
 app.use('/verifyemail', require('./src/routes/verifyEmail/emailVerification'))
 app.use('/forgotpass', require('./src/routes/forgotPass/forgotPass'))
 
-app.use(verifyJWT);
-app.use('/api', [song, album, band, artist]);
+//app.use(verifyJWT);
+app.use('/api', [song, album, band, artist, findSong]);
 
 app.all('*', (req, res) => {
   res.status(404);
