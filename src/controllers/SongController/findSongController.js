@@ -39,8 +39,8 @@ const loadAndSearchLyrics = async (req, res) =>  {
     engine.consolidate();
 
     const results = engine.search(inputLyrics);
+
     const songArr = [];
-    let i = 0;
     let shouldBreak = false;
     for (const result of results) {
       if (shouldBreak) {
@@ -62,6 +62,8 @@ const loadAndSearchLyrics = async (req, res) =>  {
           console.log(`Song not found for index: ${index}`);
       }
     }
+    engine.reset()
+    console.log(results)
     res.status(200).json({ songArr });
     } catch (error) {
       console.error('Error occurred while searching:', error);
