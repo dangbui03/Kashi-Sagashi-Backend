@@ -43,7 +43,7 @@ const getAllSong = async (req, res) =>{
 
 const createSong = async (req, res) => {
     try {
-        const { singers, Name, Link, Release_Date, Album, Lyrics} = req.body;
+        const { Artist, Name, Link, Release_date, Album, Lyrics} = req.body;
         const existedSong = await Song2.findOne({ Name });
         if (existedSong) return res.status(400).json({ message: "Already have this song in db"});
 
@@ -51,9 +51,9 @@ const createSong = async (req, res) => {
             Name: Name,
             Lyrics: Lyrics,
             Link: Link,
-            Release_date: Release_Date,
+            Release_date: Release_date,
             Album: Album,
-            Artist: singers,
+            Artist: Artist,
         });
         const savedAlbum = await newAlbum.save();
         if (savedAlbum) {
@@ -64,8 +64,50 @@ const createSong = async (req, res) => {
     }
 }
 
+const createManySong = async (req, res) => {
+    try {
+        const songsToAdd = Array.isArray(req.body) ? req.body : [req.body];
+
+        const insertedSongs = [];
+
+        for (const songData of songsToAdd) {
+            const {  Artist, Name, Link, Release_date, Album, Lyrics } = songData;
+            const existedSong = await Song2.findOne({ Name });
+
+            if (existedSong) {
+                // Bài hát đã tồn tại, bỏ qua và tiếp tục với bài hát tiếp theo
+                continue;
+            }
+
+            const newSong = new Song2({
+                Name: Name,
+                Lyrics: Lyrics,
+                Link: Link,
+                Release_date: Release_date,
+                Album: Album,
+                Artist: Artist,
+            });
+
+            const savedSong = await newSong.save();
+
+            if (savedSong) {
+                insertedSongs.push(savedSong);
+            }
+        }
+
+        if (insertedSongs.length > 0) {
+            return res.status(201).json(insertedSongs);
+        } else {
+            return res.status(400).json({ message: "All songs already exist in the database" });
+        }
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     getAllSong,
     createSong,
     FetchSong,
+    createManySong
 }
