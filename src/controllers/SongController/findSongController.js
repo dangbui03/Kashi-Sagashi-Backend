@@ -1,104 +1,75 @@
 const bm25 = require('wink-bm25-text-search');
-var nlp = require( 'wink-nlp-utils' );
-var docs = require( 'wink-bm25-text-search/sample-data/demo-data-for-wink-bm25.json' );
-var getSpottedTerms = require('wink-bm25-text-search/runkit/get-spotted-terms.js');
-// const winkNLP = require('wink-nlp');
-// const model = require('wink-eng-lite-web-model');
-// const nlp = winkNLP(model);
-// const its = nlp.its;
+const engine = bm25();
+const winkNLP = require( 'wink-nlp' );
+const model = require( 'wink-eng-lite-web-model' );
+const nlp = winkNLP( model );
+const its = nlp.its;
+const song2 = require('../../model/song2')
+const songsData = require('../../model/song.json');
 
+const prepTask = function ( text ) {
+  const tokens = [];
+  nlp.readDoc(text)
+      .tokens()
+      // Use only words ignoring punctuations etc and from them remove stop words
+      .filter( (t) => ( t.out(its.type) === 'word' && !t.out(its.stopWordFlag) ) )
+      // Handle negation and extract stem of the word
+      .each( (t) => tokens.push( (t.out(its.negationFlag)) ? '!' + t.out(its.stem) : t.out(its.stem) ) );
 
-const Song2 = require("../../model/song2.js");
-
-// const prepTask = function (text) {
-//     const tokens = [];
-//     nlp.readDoc(text)
-//       .tokens()
-//       .filter((t) => t.out(its.type) === 'word' && !t.out(its.stopWordFlag))
-//       .each((t) => {
-//         const stemmedWord = t.out(its.stem);
-//         const isNegated = t.out(its.negationFlag);
-//         tokens.push(isNegated ? '!' + stemmedWord : stemmedWord);
-//       });
-  
-//     return tokens;
-//   };
-
-const pipe = [
-  nlp.string.lowerCase,
-  nlp.string.tokenize0,
-  nlp.tokens.removeWords,
-  nlp.tokens.stem,
-  nlp.tokens.propagateNegations
-];
+  return tokens;
+};
 
 const loadAndSearchLyrics = async (req, res) =>  {
     try {
-      const lyricQuery = req.body.lyrics;
-      if (!lyricQuery) {
-        return res.status(400).json({ error: 'Lyric in request body is required' });
+      const inputLyrics = req.body.lyrics;
+
+    if (!inputLyrics) {
+      return res.status(400).json({ error: 'No lyrics provided in the request body.' });
+    }   
+
+    engine.defineConfig({ fldWeights: { Name: 1, Lyrics: 2 } });
+    engine.definePrepTasks([prepTask]);
+
+    //console.log(songsData)
+    songsData.forEach( function (songz, i) {
+      engine.addDoc( songz, i)
+    })
+
+    // Consolidate before searching
+    engine.consolidate();
+
+    const results = engine.search(inputLyrics);
+    const songArr = [];
+    let i = 0;
+    let shouldBreak = false;
+    for (const result of results) {
+      if (shouldBreak) {
+          break; // Exit the for...of loop
       }
-      
-      const searchEngine = bm25();
   
-      // Define configuration for the search
-      searchEngine.defineConfig({ fldWeights: { Lyrics: 1, body: 2 } });
-      searchEngine.definePrepTasks(pipe);
+      const index = parseInt(result[0]);
+      if (isNaN(index)) {
+          shouldBreak = true;
+          break; // Exit loop if index is NaN
+      }
   
-      // Fetch all songs from the MongoDB collection
-      const songs = await Song2.find({}, 'Lyrics'); // Adjust fields as needed
+      const song = await song2.findOne({ Name: songsData[index].Name }, {Name: 1, Lyrics: 1, Link: 1, Artist: 1, Album: 1}).exec(); // Assuming songsData contains song names
   
-      // Add songs' lyrics to the search engine index
-      songs.forEach((song, index) => {
-        searchEngine.addDoc(song.Lyrics, index);
-      });
-  
-      // Consolidate after adding documents
-      searchEngine.consolidate();
-  
-      // Perform a search query
-      const results = searchEngine.search(lyricQuery);
-  
-      res.json({ results, songs }); // Adjust response as needed
+      if (song) {
+          songArr.push(song);
+      } else {
+          // Handle if song is not found
+          console.log(`Song not found for index: ${index}`);
+      }
+    }
+    res.status(200).json({ songArr });
     } catch (error) {
       console.error('Error occurred while searching:', error);
       res.status(500).json({ error: 'An error occurred while searching' });
     }
   };
 
-const getAllSong = async (req, res) =>{
-    const song = await Song2.find();
-    if(!song){
-        return res.status(204).json({ message: "Song not found."});
-    }
-    res.json(song);
-}
-
-const createSong = async (req, res) => {
-    try {
-        const { singers, Name, Link, Release_Date, Album, Lyrics} = req.body;
-        const existedSong = await Song2.findOne({ Name });
-        if (existedSong) return res.status(400).json({ message: "Already have this song in db"});
-
-        const newAlbum = new Song2({
-            Name: Name,
-            Lyrics: Lyrics,
-            Link: Link,
-            Release_date: Release_Date,
-            Album: Album,
-            Artist: singers,
-        });
-        const savedAlbum = await newAlbum.save();
-        if (savedAlbum) {
-            return res.status(201).json(savedAlbum);
-        }
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-}
 
 module.exports = {
-    getAllSong,
-    createSong,
     loadAndSearchLyrics
 }

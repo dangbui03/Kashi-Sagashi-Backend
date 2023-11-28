@@ -11,6 +11,10 @@ const songSchema = new mongoose.Schema(
         },
         Album: {
             type: String
+        },
+        Verified: {
+            type: Boolean,
+            default: false
         }
     },
     { timestamps: true }
