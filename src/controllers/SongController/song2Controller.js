@@ -1,3 +1,4 @@
+const song2 = require("../../model/song2.js");
 const Song2 = require("../../model/song2.js");
 const songDB = {
     songzz: require('../../model/song.json'),
@@ -34,14 +35,19 @@ const FetchSong = async (req, res) => {
 }
 
 const getAllSong = async (req, res) =>{
-    const song = await Song2.find({}).exec();
-    if(!song){
-        return res.status(204).json({ message: "Song not found."});
+    try {
+        const song = await Song2.find({}).exec();
+        if(!song){
+            return res.status(400).json({ message: "Song not found."});
+        }
+        res.status(200).json(song);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
-    res.json(song);
+    
 }
 
-const createSong = async (req, res) => {
+const userCreateSong = async (req, res) => {
     try {
         const { Artist, Name, Link, Release_date, Album, Lyrics} = req.body;
         const existedSong = await Song2.findOne({ Name });
@@ -64,7 +70,7 @@ const createSong = async (req, res) => {
     }
 }
 
-const createManySong = async (req, res) => {
+const adminCreateSong = async (req, res) => {
     try {
         const songsToAdd = Array.isArray(req.body) ? req.body : [req.body];
 
@@ -86,6 +92,7 @@ const createManySong = async (req, res) => {
                 Release_date: Release_date,
                 Album: Album,
                 Artist: Artist,
+                Verified: true,
             });
 
             const savedSong = await newSong.save();
@@ -105,9 +112,36 @@ const createManySong = async (req, res) => {
     }
 }
 
+const findUnverified = async(req, res) => {
+    try {
+        const unverifiedSong = Song2.find({ Verified: false }).exec();
+        if(!unverifiedSong) return res.status(400).json({ message: "All song verified" });
+
+        res.status(200).json(unverifiedSong);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const verifiedSong = async(req, res) => {
+    try {
+        const unverifiedSong = Song2.find({ Verified: false }).exec();
+        if(!unverifiedSong) return res.status(400).json({ message: "All song verified" });
+        
+        for (const song of unverifiedSong) {
+            song.Verified = true;
+        }
+        res.status(200).json(unverifiedSong);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}
+
 module.exports = {
     getAllSong,
-    createSong,
+    userCreateSong,
     FetchSong,
-    createManySong
+    adminCreateSong,
+    findUnverified,
+    verifiedSong
 }
