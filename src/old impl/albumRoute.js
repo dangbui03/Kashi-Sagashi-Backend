@@ -1,8 +1,8 @@
 const express = require('express')
 const albumCtl = require('../../controllers/SongController/albumController')
 const router = express.Router()
-const ROLES_LIST = require('../../configs/roles_list');
-const verifyRoles = require('../../middleware/verifyRoles');
+const ROLES_LIST = require('../configs/roles_list');
+const verifyRoles = require('../middleware/verifyRoles');
 
 router.route('/album')
     .get(albumCtl.getAllAlbum)

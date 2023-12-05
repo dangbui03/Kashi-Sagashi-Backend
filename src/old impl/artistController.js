@@ -1,4 +1,4 @@
-const Artist = require("../../model/artist.js");
+const Artist = require("../model/artist.js");
 
 async function getAllArtist(req, res) {
     const artist = await Artist.find();

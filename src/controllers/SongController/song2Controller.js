@@ -1,5 +1,5 @@
-const song2 = require("../../model/song2.js");
-const Song2 = require("../../model/song2.js");
+const Song = require("../../model/song.js");
+
 const songDB = {
     songzz: require('../../model/song.json'),
     setSongs: function (data) { this.songzz = data }
@@ -9,7 +9,7 @@ const fsPromises = require('fs').promises;
 
 const FetchSong = async (req, res) => {
     try {
-        const allSongs = await Song2.find({}).exec();
+        const allSongs = await Song.find({}).exec();
 
         if (!Array.isArray(allSongs)) {
             console.error('Error: Song data not returned as an array:', allSongs);
@@ -36,7 +36,7 @@ const FetchSong = async (req, res) => {
 
 const getAllSong = async (req, res) =>{
     try {
-        const song = await Song2.find({}).exec();
+        const song = await Song.find({}).exec();
         if(!song){
             return res.status(400).json({ message: "Song not found."});
         }
@@ -49,21 +49,22 @@ const getAllSong = async (req, res) =>{
 
 const userCreateSong = async (req, res) => {
     try {
-        const { Artist, Name, Link, Release_date, Album, Lyrics} = req.body;
-        const existedSong = await Song2.findOne({ Name });
+        const { Artist, Name, Link, Release_date, Album, Lyrics, Submit_by} = req.body;
+        const existedSong = await Song.findOne({ Name });
         if (existedSong) return res.status(400).json({ message: "Already have this song in db"});
 
-        const newAlbum = new Song2({
+        const newSong = new Song({
             Name: Name,
             Lyrics: Lyrics,
             Link: Link,
             Release_date: Release_date,
             Album: Album,
             Artist: Artist,
+            Submit_by: Submit_by
         });
-        const savedAlbum = await newAlbum.save();
-        if (savedAlbum) {
-            return res.status(201).json(savedAlbum);
+        const savedSong = await newSong.save();
+        if (savedSong) {
+            return res.status(201).json(savedSong);
         }
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -78,14 +79,14 @@ const adminCreateSong = async (req, res) => {
 
         for (const songData of songsToAdd) {
             const {  Artist, Name, Link, Release_date, Album, Lyrics } = songData;
-            const existedSong = await Song2.findOne({ Name });
+            const existedSong = await Song.findOne({ Name });
 
             if (existedSong) {
                 // Bài hát đã tồn tại, bỏ qua và tiếp tục với bài hát tiếp theo
                 continue;
             }
 
-            const newSong = new Song2({
+            const newSong = new Song({
                 Name: Name,
                 Lyrics: Lyrics,
                 Link: Link,
@@ -114,8 +115,8 @@ const adminCreateSong = async (req, res) => {
 
 const findUnverified = async(req, res) => {
     try {
-        const unverifiedSong = Song2.find({ Verified: false }).exec();
-        if(!unverifiedSong) return res.status(400).json({ message: "All song verified" });
+        const unverifiedSong = await Song.find({ Verified: false }).exec();
+        if(unverifiedSong == []) return res.status(400).json({ message: "All song verified" });
 
         res.status(200).json(unverifiedSong);
     } catch (error) {
@@ -125,13 +126,14 @@ const findUnverified = async(req, res) => {
 
 const verifiedSong = async(req, res) => {
     try {
-        const unverifiedSong = Song2.find({ Verified: false }).exec();
-        if(!unverifiedSong) return res.status(400).json({ message: "All song verified" });
-        
-        for (const song of unverifiedSong) {
-            song.Verified = true;
-        }
-        res.status(200).json(unverifiedSong);
+        const { Name } = req.body;
+        const unverifiedSong = await Song.findOne({ Name: Name }).exec();
+        if(!unverifiedSong) return res.status(400).json({ message: "All song verified"});
+
+        unverifiedSong.Verified = true;
+        console.log(unverifiedSong)
+        const result = await unverifiedSong.save();
+        res.status(400).json({ message: "Success", result });
     } catch (error) {
         res.status(500).json({message: error.message});
     }
