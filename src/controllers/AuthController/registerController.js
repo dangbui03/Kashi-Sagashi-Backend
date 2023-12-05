@@ -12,7 +12,7 @@ const handleNewUser = async (req, res) => {
   // check for duplicate usernames in the db
   const existedEmail = await User.findOne({ email: email, username: username });
   if (existedEmail)
-    return res.status(400).json({ message: "Email is already registered." });
+    return res.status(404).json({ message: "Email is already registered." });
 
   if (pwd.length < 8) {
     return res.status(400).json({ message: "Password less than 8 characters." });

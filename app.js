@@ -15,7 +15,6 @@ const app = express();
 
 //
 const corsOptions = require('./src/configs/corsOptions')
-const verifyJWT = require('./src/middleware/verifyJWT');
 const errorHandler = require('./src/middleware/errorHandler');
 const { logger } = require('./src/middleware/logEvents');
 const credentials = require('./src/middleware/credentials');
@@ -47,27 +46,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//serve static files
+//route using 
 app.use('/', express.static(path.join(__dirname, '/public')));
-
-// Router require
-const normalAuth = require('./src/routes/auth/authNormal')
-const googleAuthRoute = require('./src/routes/auth/authGoogle')
-const song = require('./src/routes/api/songRoute')
-const album = require('./src/routes/api/albumRoute')
-const band = require('./src/routes/api/bandRoute')
-const artist = require('./src/routes/api/artistRoute')
-const findSong = require('./src/routes/api/song2Route')
-
-// Router use
-app.use('/', require('./src/routes/root'));
-app.use('/auth', [normalAuth, googleAuthRoute]);
-app.use('/otp', require('./src/routes/verifyEmail/OTP'))
-app.use('/verifyemail', require('./src/routes/verifyEmail/emailVerification'))
-app.use('/forgotpass', require('./src/routes/forgotPass/forgotPass'))
-
-//app.use(verifyJWT);
-app.use('/api', [song, album, band, artist, findSong]);
+app.use('/api/v2', require('./src/routes/root'))
 
 app.all('*', (req, res) => {
   res.status(404);

@@ -1,8 +1,8 @@
 const express = require('express')
 const bandCtl = require('../../controllers/SongController/bandController')
 const router = express.Router()
-const ROLES_LIST = require('../../configs/roles_list');
-const verifyRoles = require('../../middleware/verifyRoles');
+const ROLES_LIST = require('../configs/roles_list');
+const verifyRoles = require('../middleware/verifyRoles');
 
 router.route('/band')
     .get(bandCtl.getAllBand)

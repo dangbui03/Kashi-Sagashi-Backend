@@ -4,7 +4,7 @@ const winkNLP = require( 'wink-nlp' );
 const model = require( 'wink-eng-lite-web-model' );
 const nlp = winkNLP( model );
 const its = nlp.its;
-const song2 = require('../../model/song2')
+const Song = require('../../model/song')
 const songsData = require('../../model/song.json');
 
 const prepTask = function ( text ) {
@@ -21,7 +21,8 @@ const prepTask = function ( text ) {
 
 const loadAndSearchLyrics = async (req, res) =>  {
     try {
-      const inputLyrics = req.body.lyrics;
+      const inputLyrics = req.query.lyrics;
+      console.log(inputLyrics);
 
     if (!inputLyrics) {
       return res.status(400).json({ error: 'No lyrics provided in the request body.' });
@@ -53,7 +54,7 @@ const loadAndSearchLyrics = async (req, res) =>  {
           break; // Exit loop if index is NaN
       }
   
-      const song = await song2.findOne({ Name: songsData[index].Name }, {Name: 1, Lyrics: 1, Link: 1, Artist: 1, Album: 1}).exec(); // Assuming songsData contains song names
+      const song = await Song.findOne({ Name: songsData[index].Name }, {Name: 1, Lyrics: 1, Link: 1, Artist: 1, Album: 1}).exec(); // Assuming songsData contains song names
   
       if (song) {
           songArr.push(song);
