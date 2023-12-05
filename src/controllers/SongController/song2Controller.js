@@ -131,7 +131,6 @@ const verifiedSong = async(req, res) => {
         if(!unverifiedSong) return res.status(400).json({ message: "All song verified"});
 
         unverifiedSong.Verified = true;
-        console.log(unverifiedSong)
         const result = await unverifiedSong.save();
         res.status(400).json({ message: "Success", result });
     } catch (error) {
