@@ -558,3 +558,6 @@
 20231205	22:42:10	8fbbc1c1-d72f-4cc1-a717-f31e52f7580c	GET	undefined	/api/v2/song/unverified
 20231205	22:43:05	5fc80fd0-96ec-4edd-9690-308c3ae4f993	GET	undefined	/api/v2/song/unverified
 20231205	22:43:21	d18269c2-726b-4547-b67f-51df879d6cad	POST	undefined	/api/v2/auth/login
+20231206	02:01:54	837c1e76-9c70-4642-bbbb-9ee49676d41d	POST	undefined	/api/v2/auth/login
+20231206	02:04:40	077d74a0-4082-4e02-850a-bcec143c07f1	GET	undefined	/api-docs
+20231206	02:04:42	8fa59c5d-d6d4-426d-ad2f-390ab5f30bec	GET	undefined	/favicon.ico
