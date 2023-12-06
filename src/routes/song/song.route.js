@@ -18,12 +18,14 @@ router.route('/unverified')
 router.route('/verified')
     .put(verifyRoles(ROLES_LIST.Admin), songCt2.verifiedSong)
 
+router.route('/jsontomongo')
+    .get(songCt2.songFromJSONtoMongo)
+
 router.route('/')
     .get(songCt2.getAllSong)
 
+router.route('/fetch')
+    .get(songCt2.FetchSong)
 
-
-router.route('/jsontomongo')
-    .get(songCt2.songFromJSONtoMongo)
 
 module.exports = router;
