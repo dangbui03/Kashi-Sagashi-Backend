@@ -204,7 +204,7 @@ const verifiedSong = async(req, res) => {
 
         unverifiedSong.Verified = true;
         const result = await unverifiedSong.save();
-        res.status(400).json({ message: "Success", result });
+        res.status(200).json({ message: "Success", result });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ message: error.message });
