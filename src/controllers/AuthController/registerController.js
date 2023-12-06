@@ -4,7 +4,7 @@ const sendOTPEmailVerificationController = require("../EmailVerificationControll
 
 const handleNewUser = async (req, res) => {
   
-  const { email, pwd, username } = JSON.parse(req.body);
+  const { email, pwd, username } = req.body;
   if (!email || !pwd || !username)
     return res.status(403).json({ message: "All fields are required." });
 
