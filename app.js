@@ -8,6 +8,7 @@ const cors = require("cors");
 const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 const passport = require('passport');
+const bodyParser = require("body-parser");
 
 require('./src/configs/passport')
 
@@ -32,6 +33,7 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
+app.use(bodyParser.json());
 
 app.use(cookieParser());
 app.use(session({
@@ -51,7 +53,7 @@ app.get('^/$|/index(.html)?', (req, res) => {
   res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'));
 });
 
-app.use('/api/v2', require('./src/routes/root'))
+app.use('/api/v2', require('./src/routes/index'))
 
 app.all('*', (req, res) => {
   res.status(404);

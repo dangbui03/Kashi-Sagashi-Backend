@@ -8,7 +8,8 @@ const handleRefreshToken = async (req, res) => {
         const refreshToken = cookies.jwt;
 
         const foundUser =  await User.findOne({ refreshToken }).exec();
-        if (!foundUser) return res.sendStatus(403); //Forbidden 
+        if (!foundUser) return res.sendStatus(403)//Forbidden 
+
         // evaluate jwt 
         jwt.verify(
             refreshToken,
@@ -26,7 +27,7 @@ const handleRefreshToken = async (req, res) => {
                     process.env.ACCESS_TOKEN_SECRET,
                     { expiresIn: '1d' }
                 );
-                res.status(201).json({ roles, accessToken });
+                res.status(201).json({ message: "Success get access token", roles, accessToken });
             }
         );
     } catch (error) {

@@ -3,14 +3,15 @@ const bcrypt = require("bcrypt");
 const sendOTPEmailVerificationController = require("../EmailVerificationController/SendEmailVerificationController");
 
 const handleNewUser = async (req, res) => {
-  const { email, pwd, username } = req.body;
+  
+  const { email, pwd, username } = JSON.parse(req.body);
   if (!email || !pwd || !username)
     return res.status(403).json({ message: "All fields are required." });
 
   // check for duplicate usernames in the db
-  const existedEmail = await User.findOne({ email: email, username: username });
+  const existedEmail = await User.findOne({ email: email });
   if (existedEmail)
-    return res.status(404).json({ message: "Email is already registered." });
+    return res.status(400).json({ message: "Email is already registered." }); 
 
   if (pwd.length < 8) {
     return res

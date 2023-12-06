@@ -9,7 +9,7 @@ const handleLogin = async (req, res) => {
         
         //checkfoundUser
         const foundUser =  await User.findOne({ email: email }).exec();
-        if (!foundUser) return res.status(404).json({'message': "Incorrect Username"});; //Unauthorized 
+        //if (!foundUser) return res.status(404).json({'message': "Incorrect Email"});; //Unauthorized 
         
         // check user or veirified?
         if(!foundUser.verified) {
@@ -18,8 +18,8 @@ const handleLogin = async (req, res) => {
 
         // evaluate password 
         const match = await bcrypt.compare(pwd, foundUser.password);
-        if (!match) {
-            return res.status(404).json({'message': "Incorrect Password"}); 
+        if (!match || !foundUser) {
+            return res.status(401).json({'message': "Incorrect Password or Email"}); 
         }
         const roles = Object.values(foundUser.roles).filter(Boolean);
         // create JWTs
