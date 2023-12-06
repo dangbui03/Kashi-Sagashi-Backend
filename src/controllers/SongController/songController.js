@@ -212,6 +212,14 @@ const verifiedSong = async(req, res) => {
     }
 }
 
+const deleteSong = async (req, res) => {
+    try {
+        
+    } catch (error) {
+
+    }
+}
+
 module.exports = {
     getAllSong,
     userCreateSong,

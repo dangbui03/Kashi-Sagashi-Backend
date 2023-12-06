@@ -27,6 +27,9 @@ const sendOTPEmailVerificationController = async (req, res) => {
         const { email } = req.body;
         if (!email) return res.status(403).json({ message: "An email is required "});
         
+        const verified = User.findOne({ email: email}).exec();
+        if(verified) return res.status(403).json({ message: "Email has been verified"});
+
         const createdEmailVerificationOTP = await sendVerificationOTPEmail({
             email,
         });

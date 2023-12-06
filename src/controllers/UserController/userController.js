@@ -14,8 +14,8 @@ const getAllUser = async (req, res) => {
     }
 }
 const deleteUser = async (req, res) =>{
-    const { email } = req.body;
     try{
+        const { email } = req.body;
         const userToDelete = await user.findOne({email});
         if (!userToDelete){
             return res.status(404).json({ message:"User not found"});

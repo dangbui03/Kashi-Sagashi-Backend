@@ -707,3 +707,10 @@
 20231206	14:21:15	857c0af4-6691-43ec-b609-4208a0bdd981	GET	undefined	/api/v2/song/jsontomongo
 20231206	14:23:02	1a70dffc-a9aa-4338-8421-a901f06923ab	GET	undefined	/api/v2/song/jsontomongo
 20231206	14:25:56	484c60ef-9e4c-416b-8a21-5653db7f40f8	GET	undefined	/api/v2/song/fetch
+20231206	22:16:43	d51d6037-ce99-4ebd-98e3-c3cf0bbdc0b3	POST	undefined	/api/v2/auth/login
+20231206	22:16:53	b3c99df1-3d64-49bd-a82d-3d05936f0ff7	GET	undefined	/api/v2/song
+20231206	22:46:40	5709305f-e607-4794-a2cb-f4476d15fcff	POST	undefined	/verifyemail/sendemail
+20231206	22:47:10	350d7788-1725-471a-b7b3-4657f3845510	POST	undefined	/api/v2/verifyemail/sendemail
+20231206	22:47:39	fb992847-1440-48b4-bf80-609313f35ada	POST	undefined	/verifyemail/verifyemail
+20231206	22:47:47	4749f124-4a09-4784-8360-0e7e4efdb3b3	POST	undefined	/api/v2/verifyemail/verifyemail
+20231206	22:49:47	247fdc3a-0db8-4f1a-a77a-88f91bb6a343	POST	undefined	/api/v2/verifyemail/sendemail
