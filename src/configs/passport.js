@@ -41,7 +41,8 @@ passport.use('google',
             emailDuplicate.googleId = profile.id;
             emailDuplicate.refreshToken = refreshToken;
             await emailDuplicate.save();
-            return done(null, emailDuplicate);
+            res.json(accessToken)
+            return done(null, profile);
           } else {
             const newUserCred = new User({
               email: profile.emails && profile.emails[0] ? profile.emails[0].value : '',
@@ -50,9 +51,9 @@ passport.use('google',
               refreshToken: refreshToken,
               profileImage: profile.photos && profile.photos[0] ? profile.photos[0].value : '',
             });
-  
+            res.json(accessToken)
             await newUserCred.save()
-            return done(null, newUserCred);
+            return done(null, profile);
           }
         }
       } catch (error) {

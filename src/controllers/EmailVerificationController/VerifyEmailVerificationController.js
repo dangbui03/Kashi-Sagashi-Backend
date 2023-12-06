@@ -25,7 +25,8 @@ const verifyOTPEmailVerificationController = async(req, res) => {
         await verifyUserEmail({ email, otp });
         res.status(200).json({ email, verified: true })
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error:', error);
+        res.status(500).json({ messerage: error.message });
     }
 }
 
