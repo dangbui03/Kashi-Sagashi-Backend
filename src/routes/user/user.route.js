@@ -13,4 +13,6 @@ router.route('/takeadmin')
 router.route('/user')
     .get(verifyRoles(ROLES_LIST.Admin), )
 
+router.route('/user/:id')
+    .delete(verifyRoles(ROLES_LIST.Admin), )
 module.exports = router;
