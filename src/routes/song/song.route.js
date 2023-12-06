@@ -1,6 +1,6 @@
 const express = require('express')
 const songCtl = require('../../controllers/SongController/findSongController')
-const songCt2 = require('../../controllers/SongController/song2Controller')
+const songCt2 = require('../../controllers/SongController/songController')
 const router = express.Router()
 
 router.post('/useraddsong', songCt2.userCreateSong)
@@ -13,4 +13,6 @@ router.get('/', songCt2.getAllSong)
 router.get('/fetch', songCt2.FetchSong)
 router.get('/search', songCtl.loadAndSearchLyrics)
 
-module.exports = router
+router.get('/jsontomongo', songCt2.songFromJSONtoMongo)
+
+module.exports = router;

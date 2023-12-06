@@ -27,8 +27,9 @@ const handleLogout = async (req, res) => {
     res.clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "None" }); //
     res.status(200).json({ message: "Success Logout" });
   } catch (error) {
+    console.error('Error:', error);
     res.status(500).json({ message: error.message });
-  }
+}
 };
 
 module.exports = { handleLogout };

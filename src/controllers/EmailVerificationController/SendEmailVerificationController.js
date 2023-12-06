@@ -32,7 +32,8 @@ const sendOTPEmailVerificationController = async (req, res) => {
         });
         res.status(200).json(createdEmailVerificationOTP);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        console.error('Error:', error);
+        res.status(500).json({ messerage: error.message });
     }
 }
 

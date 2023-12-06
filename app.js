@@ -21,7 +21,6 @@ const credentials = require('./src/middleware/credentials');
 
 //database connection
 const db = require("./src/configs/db");
-
 db.connect();
 
 //use setup
@@ -47,13 +46,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //route using 
-app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/', express.static(path.join(__dirname, 'src', '/public')));
+app.get('^/$|/index(.html)?', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src', 'views', 'index.html'));
+});
+
 app.use('/api/v2', require('./src/routes/root'))
 
 app.all('*', (req, res) => {
   res.status(404);
   if (req.accepts('html')) {
-      res.sendFile(path.join(__dirname, 'views', '404.html'));
+      res.sendFile(path.join(__dirname, 'src', 'views', '404.html'));
   } else if (req.accepts('json')) {
       res.json({ "error": "404 Not Found" });
   } else {
@@ -66,6 +69,6 @@ app.use(errorHandler);
 
 const port = process.env.API_PORT;
 app.listen(port, () => {
-  console.log(`listen on port ${port}`);
+  console.log(`Server is running at http://127.0.0.1:${port}`);
 });
 

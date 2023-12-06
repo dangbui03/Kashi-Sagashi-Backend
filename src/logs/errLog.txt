@@ -92,3 +92,20 @@
 20231206	02:04:40	01997c17-87ec-49fa-aa84-c53d88d38662	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
 20231206	02:04:42	4e1c3d3a-436e-4ec9-b042-51ea0871d20c	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
 20231206	02:30:11	edd85203-1c2d-4830-a410-2af1ef93cdda	Error: ENOENT: no such file or directory, stat 'D:\Coding\Web API\Backend Research\Backend\views\404.html'
+20231206	11:57:38	948d7e0f-e49e-48c9-9733-5852e194bce6	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:32:53	033c6500-2bdc-4487-956b-df2d94dbde66	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:40:48	8d6e5c96-ff2e-4e92-97bc-6ce34db95dec	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:40:49	7eaa1d66-5826-44e3-8095-3323349569a6	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:42:15	44755a75-fc10-48bc-89f7-48f75bbb394c	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:42:16	17d46e5d-bda0-4b1b-9931-6f75ec1aa025	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:42:17	f90d7546-6649-4701-b555-b10d47d845b3	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:42:17	0dfe1ada-14c2-47cd-9db8-e4138f1aebe8	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:43:06	1d3b70b4-aaac-4d75-afa9-5b5e8fd0b82d	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:43:06	59c80ba9-53b5-4342-b49a-2f5b028b73d9	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\404.html'
+20231206	12:43:32	952deed6-c957-45ff-b9ec-788127ff0f0d	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\views\404.html'
+20231206	12:43:33	a2521528-9dac-49e6-8a53-607256359264	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\views\404.html'
+20231206	12:44:56	6f5809eb-5a4e-4829-a632-61014eb613ad	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\views\index.html'
+20231206	12:46:03	c09600dd-1250-4f3d-8563-d29dbec92dc4	Error: ENOENT: no such file or directory, stat 'D:\Coding\PROJECTS\Kashisagashi\KashiSagashi_Backend\views\index.html'
+20231206	13:54:01	c406416a-a735-463d-95ad-7eabcda7f6b7	SyntaxError: Unexpected token } in JSON at position 2419
+20231206	14:07:03	c20999a1-9b69-4c07-bd6a-7b87e87aeb01	SyntaxError: Unexpected token . in JSON at position 2416
+20231206	14:10:37	8b56c65f-72a3-484b-b35a-3c0158fa3383	SyntaxError: Unexpected token f in JSON at position 2416

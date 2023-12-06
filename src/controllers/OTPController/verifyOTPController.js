@@ -33,7 +33,8 @@ const verifyOTPController = async (req, res) => {
         const validOTP = await verifyOTP({ email, otp });
         res.status(200).json({ valid: validOTP });
     } catch (error) {
-        res.status(400).json( error.message );
+        console.error('Error:', error);
+        res.status(500).json({ messerage: error.message });
     }
 }
 
