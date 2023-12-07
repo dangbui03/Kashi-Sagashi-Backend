@@ -21,17 +21,13 @@ const deleteUser = async (req, res) =>{
             return res.status(404).json({ message:"User not found"});
         }
         await userToDelete.remove();
-        res.status(204).json();
+        res.status(204).json({ message: `User ${userToDelete.Name} has been cút`});
     }
     catch (error){
         console.error('Error',error);
         res.status(500).json({ message: error.message})
     }
 }
- 
-// const giveAdminPermission = async (req, res) => {
-
-// }
 
 module.exports = {
     getAllUser,
