@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 const passport = require('passport');
 const bodyParser = require("body-parser");
-
+const helmet = require("helmet");
 require('./src/configs/passport')
 
 const app = express();
@@ -29,8 +29,10 @@ app.use(logger);
 app.use(credentials); 
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
-
+app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
+
+app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(bodyParser.json());
