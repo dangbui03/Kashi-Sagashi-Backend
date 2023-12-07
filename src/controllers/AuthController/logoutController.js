@@ -13,7 +13,7 @@ const handleLogout = async (req, res) => {
     if (!foundUser) {
       res.clearCookie("jwt", {
         httpOnly: true,
-        sameSite: "None",
+        sameSite: "none",
         secure: true,
       }); //
       return res.status(200).json({ message: "Cookies Clear" });
@@ -24,7 +24,7 @@ const handleLogout = async (req, res) => {
     const result = await foundUser.save();
     console.log(result);
 
-    res.clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "None" }); //
+    res.clearCookie("jwt", { httpOnly: true, secure: true, sameSite: "none" }); //
     res.status(200).json({ message: "Success Logout" });
   } catch (error) {
     console.error('Error:', error);
