@@ -738,3 +738,11 @@
 20231207	10:30:11	dfd3c417-dc5e-4b4d-8e61-55b56ecaac5d	GET	undefined	/favicon.ico
 20231207	10:30:14	297b6568-c839-4874-aaab-b105a8219dfc	GET	undefined	/auth/google
 20231207	10:30:14	2902a683-96bf-484b-8d2e-a27eb26c4d68	GET	undefined	/auth/css/style.css
+20231207	12:30:43	0202f3b1-12be-4d6d-b599-22666486346a	POST	undefined	/forgotpass/sendotp
+20231207	12:31:02	b55b3104-d775-4003-aa66-d6fc052ba100	POST	undefined	/api/v2/forgotpass/sendotp
+20231207	12:48:42	401e42b3-71da-4d89-bf6a-74ff3b416cda	DELETE	undefined	/api/v2/user
+20231207	12:48:48	c7b41356-b22b-4d2e-a1e1-75a5f44af4d7	POST	undefined	/api/v2/auth/login
+20231207	12:49:03	48561ad7-f372-48c1-be90-75621a2725a8	DELETE	undefined	/api/v2/user
+20231207	12:49:35	f9002cb7-6dba-45f8-bba7-660070a8a314	DELETE	undefined	/api/v2/user
+20231207	12:52:20	85f17d3c-7f3a-4351-8fcc-a2d19ffe64a9	DELETE	undefined	/api/v2/user
+20231207	12:55:32	7d0cb12a-705c-43b5-ab8e-47b2b79cc999	DELETE	undefined	/api/v2/user
