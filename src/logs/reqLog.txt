@@ -733,3 +733,8 @@
 20231206	23:50:51	d5bf1a93-432c-4eea-b71e-ac6dca33df1f	POST	undefined	/api/v2/verifyemail/sendemail
 20231206	23:53:12	7918924f-ed6f-4ebf-a8ed-2b235374c282	POST	undefined	/api/v2/verifyemail/sendemail
 >>>>>>> 6925640af5c64edcd88a2712a58f73b41552d2b2
+20231207	10:30:10	64c82bc0-42c1-47e5-8d10-cb1a60999efc	GET	undefined	/
+20231207	10:30:11	b5cc66a0-b6d7-4ad2-889f-a5a9e65d57a9	GET	undefined	/css/style.css
+20231207	10:30:11	dfd3c417-dc5e-4b4d-8e61-55b56ecaac5d	GET	undefined	/favicon.ico
+20231207	10:30:14	297b6568-c839-4874-aaab-b105a8219dfc	GET	undefined	/auth/google
+20231207	10:30:14	2902a683-96bf-484b-8d2e-a27eb26c4d68	GET	undefined	/auth/css/style.css
