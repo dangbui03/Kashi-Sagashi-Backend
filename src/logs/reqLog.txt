@@ -717,3 +717,6 @@
 20231207	09:40:18	484fa83e-107a-4f77-9f2a-994de3dbff85	POST	undefined	/api/v2/auth/login
 20231207	09:47:05	20972572-b297-4e24-83bf-a9a7dd686bc0	DELETE	undefined	/api/v2/user
 20231207	09:49:40	2a7df598-b165-4a76-a4c0-0e76d35d69c1	GET	undefined	/api/v2/auth/refresh
+20231207	10:13:13	282f6b9d-4829-492d-a870-4c0228eb7a4a	PUT	undefined	/forgotpass/reset
+20231207	10:13:15	d4e5e973-633c-4097-a1e6-bf1dadbee004	PUT	undefined	/forgotpass/reset
+20231207	10:13:30	9e336322-b274-4f8f-ad7f-1cd75f1d5128	PUT	undefined	/api/v2/forgotpass/reset
