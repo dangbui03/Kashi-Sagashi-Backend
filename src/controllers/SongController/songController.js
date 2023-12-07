@@ -214,9 +214,17 @@ const verifiedSong = async(req, res) => {
 
 const deleteSong = async (req, res) => {
     try {
-        
+        const { Name } = req.body;
+        const deleteSong = await User.findOne({ Name: Name });
+        if (!deleteSong){
+            return res.status(404).json({ message:"User not found" });
+        }
+        const name = deleteSong.name;
+        await Song.deleteOne({ Name: Name });
+        res.status(200).json({ message: `Song ${name} has been deleted`});
     } catch (error) {
-
+        console.error('Error:', error);
+        res.status(500).json({ message: error.message });
     }
 }
 
@@ -228,4 +236,5 @@ module.exports = {
     findUnverified,
     verifiedSong,
     songFromJSONtoMongo,
+    deleteSong
 }
