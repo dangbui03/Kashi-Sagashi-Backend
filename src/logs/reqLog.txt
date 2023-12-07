@@ -714,3 +714,6 @@
 20231206	22:47:39	fb992847-1440-48b4-bf80-609313f35ada	POST	undefined	/verifyemail/verifyemail
 20231206	22:47:47	4749f124-4a09-4784-8360-0e7e4efdb3b3	POST	undefined	/api/v2/verifyemail/verifyemail
 20231206	22:49:47	247fdc3a-0db8-4f1a-a77a-88f91bb6a343	POST	undefined	/api/v2/verifyemail/sendemail
+20231207	09:40:18	484fa83e-107a-4f77-9f2a-994de3dbff85	POST	undefined	/api/v2/auth/login
+20231207	09:47:05	20972572-b297-4e24-83bf-a9a7dd686bc0	DELETE	undefined	/api/v2/user
+20231207	09:49:40	2a7df598-b165-4a76-a4c0-0e76d35d69c1	GET	undefined	/api/v2/auth/refresh
