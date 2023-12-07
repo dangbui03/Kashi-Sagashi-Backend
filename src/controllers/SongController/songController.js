@@ -10,13 +10,15 @@ const fsPromises = require('fs').promises;
 
 const FetchSong = async (req, res) => {
     try {
+        const filePath = path.join(__dirname, '..', '..', 'model', 'song.json');
+        // await fsPromises.writeFile(filePath, '[]');
         // Retrieve all songs from the database in batches to avoid loading all at once
         const batchSize = 100; // Adjust this batch size based on your requirements
         let skip = 0;
         let hasMore = true;
 
         while (hasMore) {
-            const songsBatch = await Song.find({}).skip(skip).limit(batchSize).exec();
+            const songsBatch = await Song.find({ Verified: true }).skip(skip).limit(batchSize).exec();
 
             if (songsBatch.length === 0) {
                 hasMore = false;
@@ -35,7 +37,7 @@ const FetchSong = async (req, res) => {
         }
 
         await fsPromises.writeFile(
-            path.join(__dirname, '..', '..', 'model', 'song.json'),
+            filePath,
             JSON.stringify(songDB.songzz)
         );
 
@@ -48,7 +50,7 @@ const FetchSong = async (req, res) => {
 
 const getAllSong = async (req, res) =>{
     try {
-        const song = await Song.find({}).exec();
+        const song = await Song.find({ Verified: true }).exec();
         if(!song){
             return res.status(400).json({ message: "Song not found."});
         }

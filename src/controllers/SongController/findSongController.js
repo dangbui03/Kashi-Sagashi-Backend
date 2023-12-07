@@ -6,7 +6,7 @@ const nlp = winkNLP( model );
 const its = nlp.its;
 
 const Song = require('../../model/song')
-const songsData = require('../../model/song.json');
+//const songsData = require('../../model/song.json');
 
 const prepTask = function ( text ) {
   const tokens = [];
@@ -22,6 +22,8 @@ const prepTask = function ( text ) {
 
 const loadAndSearchLyrics = async (req, res) =>  {
     try {
+      songsData = await Song.find({ Verified: true }, {Name: 1, Lyrics: 1}).exec();
+
       const inputLyrics = req.query.lyrics;
       console.log(inputLyrics);
 
@@ -33,7 +35,7 @@ const loadAndSearchLyrics = async (req, res) =>  {
       engine.definePrepTasks([prepTask]);
 
       //console.log(songsData)
-      songsData.forEach( function (songz, i) {
+      songsData.forEach( async function (songz, i) {
         engine.addDoc( songz, i)
       })
 

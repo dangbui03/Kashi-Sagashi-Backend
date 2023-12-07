@@ -15,7 +15,7 @@ router.use('/verifyemail', require('./verifyEmail/emailVerification.route'))
 router.use('/forgotpass', require('./forgotPass/forgotPass.route'))
 
 router.use('/song', require('./song/findsong.route'))
-//router.use(verifyJWT);
+router.use(verifyJWT);
 router.use('/user', [user]);
 router.use('/song', [song]);
 
