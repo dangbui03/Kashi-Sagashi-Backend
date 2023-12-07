@@ -746,3 +746,9 @@
 20231207	12:49:35	f9002cb7-6dba-45f8-bba7-660070a8a314	DELETE	undefined	/api/v2/user
 20231207	12:52:20	85f17d3c-7f3a-4351-8fcc-a2d19ffe64a9	DELETE	undefined	/api/v2/user
 20231207	12:55:32	7d0cb12a-705c-43b5-ab8e-47b2b79cc999	DELETE	undefined	/api/v2/user
+20231207	13:41:34	8a486bfc-fbfa-473c-b474-d7b4e91102d6	POST	undefined	/api/v2/auth/login
+20231207	14:02:36	3345175f-febf-45d8-84d6-4af35905bfe5	GET	undefined	/api/v2/user
+20231207	14:05:26	a3afafc9-b902-4b03-a657-e2236953ac5b	GET	undefined	/api/v2/user
+20231207	14:05:36	ab327a5f-0a35-4abe-af63-415ab29bb9be	POST	undefined	/api/v2/auth/login
+20231207	14:05:42	6900a79b-03a1-4aa4-92c6-0985dfd27bec	GET	undefined	/api/v2/user
+20231207	14:05:56	17cc2d9e-b59d-4071-838f-3da9c22ec091	GET	undefined	/api/v2/user

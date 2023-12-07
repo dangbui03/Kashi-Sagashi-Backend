@@ -18,6 +18,9 @@ router.route('/unverified')
 router.route('/verified')
     .put(verifyRoles(ROLES_LIST.Admin), songCt2.verifiedSong)
 
+router.route('/delete')
+    .delete(verifyRoles(ROLES_LIST.Admin), songCt2.deleteSong)
+
 router.route('/jsontomongo')
     .get(songCt2.songFromJSONtoMongo)
 
