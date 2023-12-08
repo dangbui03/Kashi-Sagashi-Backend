@@ -23,6 +23,9 @@ router.route('/delete')
 router.route('/')
     .get(verifyRoles(ROLES_LIST.User), songCt2.getAllSong)
 
+router.route('/')
+    .get(verifyRoles(ROLES_LIST.User), songCt2.getSongBySongName)
+
 router.route('/jsontomongo')
     .get(songCt2.songFromJSONtoMongo)
 

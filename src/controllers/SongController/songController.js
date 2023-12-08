@@ -61,6 +61,23 @@ const getAllSong = async (req, res) =>{
     }
 }
 
+const getSongBySongName = async (req, res) => {
+    try {
+        const Name = req.query.Name;
+        if (!Name) return res.status(404).json({ error: "Missing song name"});
+
+        const song = await Song.find({ Name: Name, Verified: true }).exec();
+        if(!song){
+            return res.status(400).json({ message: "Song not found."});
+        }
+
+        res.status(200).json(song);
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 const songFromJSONtoMongo = async (req, res) => {
     try {
         const data = await fsPromises.readFile(SongJsonPath, 'utf-8');
@@ -222,7 +239,7 @@ const deleteSong = async (req, res) => {
         if (!deleteSong){
             return res.status(400).json({ message:"Song not found" });
         }
-        
+
         const name = deleteSong.Name;
         await Song.deleteOne({ Name: Name });
         res.status(200).json({ message: `Song ${name} has been deleted`});
@@ -234,11 +251,12 @@ const deleteSong = async (req, res) => {
 
 module.exports = {
     getAllSong,
+    getSongBySongName,
     userCreateSong,
     FetchSong,
     adminCreateSong,
     findUnverified,
     verifiedSong,
     songFromJSONtoMongo,
-    deleteSong
+    deleteSong,
 }
