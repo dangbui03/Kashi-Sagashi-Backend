@@ -222,7 +222,7 @@ const verifiedSong = async(req, res) => {
 
         unverifiedSong.Verified = true;
         const result = await unverifiedSong.save();
-        await FetchSong(); 
+
         res.status(200).json({ message: "Success", result });
     } catch (error) {
         console.error('Error:', error);
